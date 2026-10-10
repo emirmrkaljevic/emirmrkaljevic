@@ -1,7 +1,6 @@
 name: Re-render PanelOS header
 on:
-  schedule:
-    - cron: "17 4 * * *"
+  # Daily refresh runs from the box (refresh.sh); this is manual-only.
   workflow_dispatch:
 permissions:
   contents: write

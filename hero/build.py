@@ -149,7 +149,7 @@ def find_me(r, img, socials, accent=(0xC9, 0xA2, 0x4A)):
     cap = r._ink_h(text_font, "H")
     icon = int(round(cap * 1.55))
     row_top = top + ink_h + 0.068 * H
-    step = 0.097 * H
+    step = 0.086 * H
     for i, item in enumerate(socials):
         y = row_top + i * step
         mark = Image.open(HERE / "icons" / f"{item['icon']}.png").convert("RGBA").resize((icon, icon), Image.LANCZOS)

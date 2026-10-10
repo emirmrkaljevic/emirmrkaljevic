@@ -1,6 +1,24 @@
 [
-  {"icon": "linkedin", "text": "in/emirmrkaljevic"},
-  {"icon": "upwork", "text": "Upwork", "note": "scraping & automation"},
-  {"icon": "github", "text": "@emirmrkaljevic"},
-  {"icon": "globe", "text": "hatt.at"}
+  {
+    "icon": "linkedin",
+    "text": "in/emirmrkaljevic"
+  },
+  {
+    "icon": "upwork",
+    "text": "Upwork",
+    "note": "scraping & automation"
+  },
+  {
+    "icon": "github",
+    "text": "@emirmrkaljevic"
+  },
+  {
+    "icon": "devto",
+    "text": "@emirmrkaljevic",
+    "note": "dev.to"
+  },
+  {
+    "icon": "globe",
+    "text": "hatt.at"
+  }
 ]

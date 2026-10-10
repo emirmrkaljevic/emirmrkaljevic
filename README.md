@@ -4,12 +4,6 @@
 
 <sub>The screen is <a href="https://emirmrkaljevic.github.io/panelos-site/">PanelOS</a>, the Windows app I'm building for the small USB screens people put in PC cases. Here it shows my GitHub numbers instead of CPU temps, rendered every morning with the app's own theme code. The bottom row links out.</sub>
 
-### Hi, I'm Emir
-
-I'm a software developer at UniCredit. Most days that means PL/SQL, Oracle APEX, Jasper reports, and Python scripts that stop someone from doing the same thing by hand every morning. Before that I built RPA bots at NLB and Virgin Pulse, which is a polite way of saying I taught computers to click buttons.
-
-The rest of my time goes into things I build myself.
-
 ### What I run
 
 <table>

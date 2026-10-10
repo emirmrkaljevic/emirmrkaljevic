@@ -1,40 +1,49 @@
-# Hi, I'm Emir Mrkaljević
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/man-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/man-light.svg" />
+  <img src="./assets/man-light.svg" width="520" alt="EMIR(1). NAME: emir - bank developer, side-project hoarder" />
+</picture>
 
-I build digital products for work that is too complex to stay messy: strategy, design and engineering for operational workflows. On the side I run **TinyRex**, a set of pay-per-result web data tools on Apify.
+#### <samp>SYNOPSIS</samp>
 
-## HATT · [hatt.at](https://hatt.at)
+```
+emir [--at-work unicredit]
+     [--after-hours skin-to-scan
+                  | tinyrex
+                  | panelos]
+```
 
-HATT builds focused digital products for workflow-critical work across health, funding and operations.
+#### <samp>DESCRIPTION</samp>
 
-- **[SkinToScan](https://skintoscan.com)** (live): AI-assisted skin information for awareness. Upload a photo of a mole or lesion and get a machine-learning screening result. Not a medical diagnosis.
-- **[HATT Scout](https://hatt.at/products/grants-platform)** (private access): matches grants and tenders against reusable organisation profiles (country, industry, applicant type, consortium size, focus tags), with versioned criteria and scheduled matching.
-- **[Asset Inventory](https://hatt.at/products/asset-inventory)** (prototype): brings fixed assets, inventory teams and discrepancies into one structured view.
-- **[HATT Folio](https://hatt.at/stories/folio)**: desktop tool that generates bulk Word documents from a template and structured spreadsheet rows.
+I'm a software developer at UniCredit: PL/SQL, Oracle APEX, Jasper reports, and Python scripts that stop someone from doing the same thing by hand every morning. Before that I built RPA bots at NLB and Virgin Pulse, which is a polite way of saying I taught computers to click buttons.
 
-## TinyRex · [apify.com/tinyrex](https://apify.com/tinyrex)
+After hours I build small products and find out which ones anyone actually wants.
 
-Small, pay-per-result data tools on the Apify Store. Official APIs and public feeds where possible; all of them can also be called by AI agents through Apify's MCP server.
+#### <samp>PROJECTS</samp>
 
-**Jobs**
-- [Greenhouse / Lever / Ashby Jobs Scraper](https://apify.com/tinyrex/ats-jobs-scraper): open jobs from Greenhouse, Lever, Ashby, Personio, Teamtailor and Recruitee career pages
-- [Workday Jobs Scraper](https://apify.com/tinyrex/workday-jobs-scraper): all open jobs from any myworkdayjobs.com career site
-- [Arbeitsagentur Jobs Scraper](https://apify.com/tinyrex/dach-jobs-scraper): jobs from Bundesagentur für Arbeit and EURES (Germany, Austria, Switzerland, EU)
-- [Remote Jobs Scraper](https://apify.com/tinyrex/remote-jobs-scraper): Himalayas, Remote OK, We Work Remotely, Working Nomads and Arbeitnow in one run
+<dl>
+  <dt><samp><a href="https://skintoscan.com">skin-to-scan</a></samp></dt>
+  <dd>Photo of a mole in, CNN screening result out. Awareness, not a diagnosis.</dd>
+  <dt><samp><a href="https://apify.com/tinyrex">tinyrex</a></samp></dt>
+  <dd>A dozen pay-per-result scrapers on Apify: job boards, Shopify, WooCommerce, EU tenders. <a href="https://emirmrkaljevic.github.io/tinyrex-data-tools/">Guides</a>.</dd>
+  <dt><samp><a href="https://emirmrkaljevic.github.io/panelos-site/">panelos</a></samp></dt>
+  <dd>Windows app for the small USB screen in a PC case: temps, load, and what Spotify is playing.</dd>
+  <dt><samp><a href="https://hatt.at">hatt</a></samp></dt>
+  <dd>Where Skin to Scan lives, plus tools for grant matching and asset inventories.</dd>
+</dl>
 
-**E-commerce**
-- [Shopify Products Scraper](https://apify.com/tinyrex/shopify-products-scraper): products, prices, variants, SKUs and stock from any Shopify store
-- [WooCommerce Products Scraper](https://apify.com/tinyrex/woocommerce-products-scraper): products, prices, variations and stock from any WooCommerce store
+#### <samp>HISTORY</samp>
 
-**EU tenders & grants**
-- [TED EU Tenders Scraper](https://apify.com/tinyrex/ted-tenders-scraper): EU public tenders and contract awards via the official TED API
-- [EU Grants Scraper](https://apify.com/tinyrex/eu-grants-scraper): open and upcoming EU funding calls (Horizon Europe, Digital Europe and more)
+UniCredit (2024-). NLB and Virgin Pulse, RPA (2023-24). Interned at Tech For Good and Info Studio, the latter in React and TypeScript. BSc in Software Engineering, PCAP certified.
 
-**Websites & apps**
-- [Tech Stack Detector](https://apify.com/tinyrex/tech-stack-detector): bulk Wappalyzer / BuiltWith alternative for detecting website technologies
-- [App Store Reviews Scraper](https://apify.com/tinyrex/app-store-reviews-scraper): Apple App Store reviews and ratings from Apple's official feed
+#### <samp>ENVIRONMENT</samp>
 
-Guides and examples: [emirmrkaljevic.github.io/tinyrex-data-tools](https://emirmrkaljevic.github.io/tinyrex-data-tools/)
+`PYTHON` `PLSQL` `SQL` `TYPESCRIPT` `REACT` `ORACLE_APEX`
 
-## Links
+#### <samp>SEE ALSO</samp>
 
-[hatt.at](https://hatt.at) · [skintoscan.com](https://skintoscan.com) · [TinyRex on Apify](https://apify.com/tinyrex)
+[hatt.at](https://hatt.at), [skintoscan.com](https://skintoscan.com), [apify.com/tinyrex](https://apify.com/tinyrex)
+
+#### <samp>BUGS</samp>
+
+Will show you PanelOS if you ask. Sometimes if you don't.

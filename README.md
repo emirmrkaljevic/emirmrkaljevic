@@ -1,6 +1,8 @@
-<a href="https://emirmrkaljevic.github.io/panelos-site/"><img src="./assets/panel.jpg" width="100%" alt="The small screen in my PC case running PanelOS, showing my GitHub commits, active days and what I'm shipping right now" /></a>
+<a href="https://emirmrkaljevic.github.io/panelos-site/"><img src="./assets/panel.jpg" width="100%" alt="The small screen in my PC case running PanelOS, showing my GitHub commits, active days, where to find me, and what I'm shipping right now" /></a>
 
-<sub>That's the screen in my PC case running <a href="https://emirmrkaljevic.github.io/panelos-site/">PanelOS</a>, the Windows app I make and sell. Instead of CPU temps it shows my GitHub numbers. A GitHub Action re-renders it every morning with the app's own theme code.</sub>
+<sub>That's the screen in my PC case running <a href="https://emirmrkaljevic.github.io/panelos-site/">PanelOS</a>, the Windows app I'm launching. Instead of CPU temps it shows my GitHub numbers. A GitHub Action re-renders it every morning with the app's own theme code.</sub>
+
+<sub><b>Find me:</b> <a href="https://www.linkedin.com/in/emirmrkaljevic">LinkedIn</a> · <a href="https://www.upwork.com/freelancers/~010819c711770f4f81">Upwork</a> · <a href="https://github.com/emirmrkaljevic">GitHub</a> · <a href="https://hatt.at">hatt.at</a></sub>
 
 ### Hi, I'm Emir
 
@@ -30,4 +32,4 @@ The rest of my time goes into things I build myself.
 
 ---
 
-[hatt.at](https://hatt.at) · [skintoscan.com](https://skintoscan.com) · [apify.com/tinyrex](https://apify.com/tinyrex) · [PanelOS](https://emirmrkaljevic.github.io/panelos-site/)
+[LinkedIn](https://www.linkedin.com/in/emirmrkaljevic) · [Upwork](https://www.upwork.com/freelancers/~010819c711770f4f81) · [hatt.at](https://hatt.at) · [skintoscan.com](https://skintoscan.com) · [apify.com/tinyrex](https://apify.com/tinyrex) · [PanelOS](https://emirmrkaljevic.github.io/panelos-site/)

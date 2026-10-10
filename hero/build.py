@@ -11,7 +11,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageFilter, ImageEnhance
+from PIL import Image, ImageDraw, ImageFilter, ImageEnhance
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE.parent / "assets" / "panel.jpg"
@@ -120,7 +120,51 @@ def render_panel(n, now, actors):
     sensors = {"cpu_label": "COMMITS", "gpu_label": "ACTIVE DAYS", "cpu_temp": 1001, "gpu_temp": 1002}
     media = {"title": now["title"], "artist": now["subtitle"],
              "position_sec": doy, "duration_sec": ylen, "playing": True}
-    return r.render_theme("signature", sensors, width=1440, height=960, media=media)
+    img = r.render_theme("signature", sensors, width=1440, height=960, media=media)
+    socials = json.loads((HERE / "socials.json").read_text(encoding="utf-8"))
+    return find_me(r, img, socials)
+
+
+def find_me(r, img, socials, accent=(0xC9, 0xA2, 0x4A)):
+    """A 'FIND ME' block in the empty top-right of the panel, built from the
+    theme's own fonts, colours and label helpers so it reads as a native widget."""
+    img = img.convert("RGBA")
+    W, H = img.size
+    d = ImageDraw.Draw(img)
+    x = r._signature_song_x(W)
+    top = 0.099 * H                                   # cap line of the COMMITS label
+    play_font = r._font(r.SIG_TEXT, H * r._SIG_PLAY)
+    text_font = r._font(r.SIG_LIGHT, H * r._SIG_ARTIST)
+    note_font = r._font(r.SIG_LIGHT, H * r._SIG_TIME)
+    # header: accent dot + tracked caps, same recipe as PLAYING
+    word = "FIND ME"
+    ink_h = r._ink_h(play_font, word)
+    dot = max(2, int(ink_h * 0.32))
+    cy = top + ink_h / 2.0
+    d.ellipse((x, cy - dot, x + dot * 2, cy + dot), fill=accent)
+    px = x + dot * 3
+    track = play_font.size * 0.22
+    r._soft_label_shadow(img, px, top, word, play_font, track)
+    r._tracked(d, px, top, word, play_font, accent, track)
+    cap = r._ink_h(text_font, "H")
+    icon = int(round(cap * 1.55))
+    row_top = top + ink_h + 0.068 * H
+    step = 0.097 * H
+    for i, item in enumerate(socials):
+        y = row_top + i * step
+        mark = Image.open(HERE / "icons" / f"{item['icon']}.png").convert("RGBA").resize((icon, icon), Image.LANCZOS)
+        tint = Image.new("RGBA", mark.size, (*r._SIG_LABEL, 0))
+        tint.putalpha(mark.getchannel("A").point(lambda a: int(a * 0.92)))
+        img.alpha_composite(tint, (int(x), int(round(y + cap / 2 - icon / 2))))
+        tx = x + icon + 0.022 * W
+        r._soft_label_shadow(img, tx, y, item["text"], text_font, 0.0)
+        end = r._ink(d, tx, y, item["text"], text_font, r._SIG_WHITE)
+        if item.get("note"):
+            nx = tx + text_font.getlength(item["text"]) + 0.018 * W
+            ny = y + cap - r._ink_h(note_font, "H")
+            r._soft_label_shadow(img, nx, ny, item["note"], note_font, 0.0)
+            r._ink(d, nx, ny, item["note"], note_font, r._SIG_SUB)
+    return img.convert("RGB")
 
 
 # ---------------------------------------------------------------- photo

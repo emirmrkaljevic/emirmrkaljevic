@@ -1,0 +1,53 @@
+name: Re-render PanelOS header
+on:
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for PanelOS access
+        id: access
+        env:
+          TOKEN: ${{ secrets.PANELOS_READ_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::notice::PANELOS_READ_TOKEN is not set, keeping the current header."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Fetch the PanelOS theme renderer (private repo, read-only)
+        if: steps.access.outputs.ok == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: emirmrkaljevic/panelos
+          ref: 6de0fa4e99b74a8cabc405a0b42117d2d370ab5c
+          token: ${{ secrets.PANELOS_READ_TOKEN }}
+          path: panelos
+          sparse-checkout: design/themes-v2
+      - uses: actions/setup-python@v5
+        if: steps.access.outputs.ok == 'true'
+        with:
+          python-version: "3.12"
+      - name: Render
+        if: steps.access.outputs.ok == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PANELOS_THEMES: ${{ github.workspace }}/panelos/design/themes-v2
+        run: |
+          pip install --quiet pillow numpy
+          python hero/build.py
+      - name: Commit if changed
+        if: steps.access.outputs.ok == 'true'
+        run: |
+          if git diff --quiet -- assets/panel.jpg; then echo "no change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add assets/panel.jpg
+          git commit -m "Refresh the panel"
+          git push

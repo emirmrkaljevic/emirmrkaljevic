@@ -1,24 +1,27 @@
 [
   {
     "icon": "linkedin",
-    "text": "in/emirmrkaljevic"
+    "label": "LinkedIn",
+    "url": "https://linkedin.com/in/emirmrkaljevic"
   },
   {
     "icon": "upwork",
-    "text": "Upwork",
-    "note": "scraping & automation"
+    "label": "Upwork",
+    "url": "https://www.upwork.com/freelancers/~010819c711770f4f81"
   },
   {
     "icon": "github",
-    "text": "@emirmrkaljevic"
+    "label": "GitHub",
+    "url": "https://github.com/emirmrkaljevic"
   },
   {
     "icon": "devto",
-    "text": "@emirmrkaljevic",
-    "note": "dev.to"
+    "label": "dev.to",
+    "url": "https://dev.to/emirmrkaljevic"
   },
   {
     "icon": "globe",
-    "text": "hatt.at"
+    "label": "hatt.at",
+    "url": "https://hatt.at"
   }
 ]

@@ -1,27 +1,36 @@
 #!/usr/bin/env python3
 """Renders the profile header: my PanelOS Signature theme, fed with GitHub numbers
-instead of sensor readings, put back onto the photo of the screen in my PC.
+instead of sensor readings, as a flat screenshot. It is cut into tiles so the
+links on the screen can be clicked, and the README block between the hero
+markers is rewritten to match.
 
   PANELOS_THEMES=/path/to/panelos/design/themes-v2 python3 hero/build.py
 
 Needs: Pillow, numpy, the `gh` CLI (GH_TOKEN in CI).
 """
-import importlib.util, json, os, subprocess, sys, urllib.request
+import importlib.util, json, os, re, subprocess, sys, urllib.request
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFilter, ImageEnhance
+from PIL import Image, ImageDraw
 
 HERE = Path(__file__).resolve().parent
-OUT = HERE.parent / "assets" / "panel.jpg"
+ROOT = HERE.parent
+TILES = ROOT / "assets" / "hero"
+README = ROOT / "README.md"
 USER = os.environ.get("PROFILE_USER", "emirmrkaljevic")
 THEMES = Path(os.environ.get("PANELOS_THEMES", HERE.parent.parent / "panelos" / "design" / "themes-v2"))
 
-# Screen corners in hero/photo.jpg (TL, TR, BR, BL), measured by hand.
-QUAD = [(955, 357), (2094, 299), (2061, 1010), (1015, 1045)]
-CROP = (700, 170, 2480, 1190)          # final header framing
-OUT_W = 1600
+W, H = 1440, 960          # the screen, landscape Signature layout
+DOCK_H = 168              # link strip under the theme, same screen
+BEZEL = 14                # thin plain bezel
+BG = (19, 19, 22)         # flat ground instead of album art
+BEZEL_RGB = (8, 8, 9)
+ACCENT = (0xC9, 0xA2, 0x4A)
+GRID_WEEKS = 16
+SPLIT_Y = 0.676           # row cut, in an empty band of both columns
+PANELOS_URL = "https://emirmrkaljevic.github.io/panelos-site/"
 
 
 # ---------------------------------------------------------------- data
@@ -84,6 +93,7 @@ def github_numbers():
         "repos": d["repositories"]["totalCount"],
         "weekly": weekly,
         "daily90": counts[-90:],
+        "grid": [[x["contributionCount"] for x in w] for w in weeks[-GRID_WEEKS:]],
         "refresh_excluded": removed,
     }
 
@@ -143,6 +153,12 @@ def render_panel(n, now, actors):
     pairs.append(("SYNC", date.today().strftime("%d %b").upper().lstrip("0")))
     r._stat_pairs = lambda s: pairs
     r._spark_points = spark_points
+    # Screenshot look: flat ground, crisp lines. No scrim, no spark glow, and no
+    # pause glyph (nothing is playing here).
+    r._signature_scrim = lambda im, portrait, accent: im
+    r._spark_glow = lambda size, box, color, seed: (
+        Image.new("RGBA", size, (0, 0, 0, 0)), max(2, int(round((box[3] - box[1]) * 0.09))))
+    r._signature_pause = lambda *a, **k: None
     # progress bar = how far through the year we are
     doy = date.today().timetuple().tm_yday
     ylen = 366 if date.today().year % 4 == 0 else 365
@@ -152,111 +168,161 @@ def render_panel(n, now, actors):
     sensors = {"cpu_label": "COMMITS", "gpu_label": "ACTIVE DAYS", "cpu_temp": 1001, "gpu_temp": 1002}
     media = {"title": now["title"], "artist": now["subtitle"],
              "position_sec": doy, "duration_sec": ylen, "playing": True}
-    img = r.render_theme("signature", sensors, width=1440, height=960, media=media)
+    cover = Image.new("RGB", (64, 64), BG)
+    img = r.render_theme("signature", sensors, cover=cover, width=W, height=H, media=media)
+    img = heatmap(r, img.convert("RGBA"), n["grid"])
     socials = json.loads((HERE / "socials.json").read_text(encoding="utf-8"))
-    return find_me(r, img, socials)
+    screen = Image.new("RGBA", (W, H + DOCK_H), (*BG, 255))
+    screen.alpha_composite(img, (0, 0))
+    dock(r, screen, socials)
+    return screen, socials, r._signature_song_x(W)
 
 
-def find_me(r, img, socials, accent=(0xC9, 0xA2, 0x4A)):
-    """A 'FIND ME' block in the empty top-right of the panel, built from the
-    theme's own fonts, colours and label helpers so it reads as a native widget."""
-    img = img.convert("RGBA")
-    W, H = img.size
-    d = ImageDraw.Draw(img)
-    x = r._signature_song_x(W)
-    top = 0.099 * H                                   # cap line of the COMMITS label
-    play_font = r._font(r.SIG_TEXT, H * r._SIG_PLAY)
-    text_font = r._font(r.SIG_LIGHT, H * r._SIG_ARTIST)
-    note_font = r._font(r.SIG_LIGHT, H * r._SIG_TIME)
-    # header: accent dot + tracked caps, same recipe as PLAYING
-    word = "FIND ME"
-    ink_h = r._ink_h(play_font, word)
+def _mix(a, b, t):
+    return tuple(int(round(x + (y - x) * t)) for x, y in zip(a, b))
+
+
+def _header(r, img, d, x, top, word):
+    """Accent dot + tracked caps, the same recipe the theme uses for PLAYING."""
+    font = r._font(r.SIG_TEXT, H * r._SIG_PLAY)
+    ink_h = r._ink_h(font, word)
     dot = max(2, int(ink_h * 0.32))
     cy = top + ink_h / 2.0
-    d.ellipse((x, cy - dot, x + dot * 2, cy + dot), fill=accent)
-    px = x + dot * 3
-    track = play_font.size * 0.22
-    r._soft_label_shadow(img, px, top, word, play_font, track)
-    r._tracked(d, px, top, word, play_font, accent, track)
-    cap = r._ink_h(text_font, "H")
-    icon = int(round(cap * 1.55))
-    row_top = top + ink_h + 0.068 * H
-    step = 0.086 * H
+    d.ellipse((x, cy - dot, x + dot * 2, cy + dot), fill=ACCENT)
+    r._tracked(d, x + dot * 3, top, word, font, ACCENT, font.size * 0.22)
+    return ink_h
+
+
+def heatmap(r, img, grid):
+    """Contribution grid in the empty top right, where album art would sit."""
+    d = ImageDraw.Draw(img)
+    x0 = r._signature_song_x(W)
+    top = 0.099 * H                                   # cap line of the COMMITS label
+    ink_h = _header(r, img, d, x0, top, f"LAST {len(grid)} WEEKS")
+    right = 0.905 * W
+    pitch = (right - x0) / len(grid)
+    cell = pitch * 0.80
+    gy = top + ink_h + 0.062 * H
+    vals = sorted(v for w in grid for v in w if v)
+    def level(v):
+        if not v or not vals:
+            return 0
+        rank = sum(1 for x in vals if x <= v) / len(vals)
+        return 1 + min(3, int(rank * 4 - 1e-9))
+    shades = [_mix(BG, (255, 255, 255), 0.07)] + [_mix(BG, ACCENT, t) for t in (0.32, 0.55, 0.78, 1.0)]
+    rad = max(2, int(cell * 0.16))
+    for i, week in enumerate(grid):
+        for j, v in enumerate(week):
+            x = x0 + i * pitch
+            y = gy + j * pitch
+            d.rounded_rectangle((x, y, x + cell, y + cell), radius=rad, fill=shades[level(v)])
+    total = sum(sum(w) for w in grid)
+    font = r._font(r.SIG_LIGHT, H * r._SIG_TIME)
+    ty = gy + 7 * pitch + 0.026 * H
+    r._ink(d, x0, ty, f"{total} contributions", font, r._SIG_SUB)
+    # legend, right aligned with the grid
+    lx = x0 + (len(grid) - 1) * pitch + cell
+    sw = cell * 0.62
+    for k in range(4, -1, -1):
+        lx -= sw
+        d.rounded_rectangle((lx, ty, lx + sw, ty + sw), radius=max(1, rad // 2), fill=shades[k])
+        lx -= sw * 0.35
+    return img
+
+
+def dock(r, screen, socials):
+    """Link strip at the bottom of the screen: five equal cells."""
+    d = ImageDraw.Draw(screen)
+    y0 = H
+    line = _mix(BG, (255, 255, 255), 0.10)
+    d.line((0.04 * W, y0, 0.96 * W, y0), fill=line, width=2)
+    font = r._font(r.SIG_LIGHT, H * r._SIG_ARTIST)
+    cap = r._ink_h(font, "H")
+    icon = int(round(cap * 1.6))
+    cw = W / len(socials)
     for i, item in enumerate(socials):
-        y = row_top + i * step
+        if i:
+            d.line((i * cw, y0 + DOCK_H * 0.30, i * cw, y0 + DOCK_H * 0.72), fill=line, width=2)
+        label = item["label"]
+        tw = font.getlength(label)
+        gap = 0.012 * W
+        x = i * cw + (cw - (icon + gap + tw)) / 2
+        cy = y0 + DOCK_H * 0.51
         mark = Image.open(HERE / "icons" / f"{item['icon']}.png").convert("RGBA").resize((icon, icon), Image.LANCZOS)
         tint = Image.new("RGBA", mark.size, (*r._SIG_LABEL, 0))
-        tint.putalpha(mark.getchannel("A").point(lambda a: int(a * 0.92)))
-        img.alpha_composite(tint, (int(x), int(round(y + cap / 2 - icon / 2))))
-        tx = x + icon + 0.022 * W
-        r._soft_label_shadow(img, tx, y, item["text"], text_font, 0.0)
-        end = r._ink(d, tx, y, item["text"], text_font, r._SIG_WHITE)
-        if item.get("note"):
-            nx = tx + text_font.getlength(item["text"]) + 0.018 * W
-            ny = y + cap - r._ink_h(note_font, "H")
-            r._soft_label_shadow(img, nx, ny, item["note"], note_font, 0.0)
-            r._ink(d, nx, ny, item["note"], note_font, r._SIG_SUB)
-    return img.convert("RGB")
+        tint.putalpha(mark.getchannel("A"))
+        screen.alpha_composite(tint, (int(round(x)), int(round(cy - icon / 2))))
+        r._ink(d, x + icon + gap, cy - cap / 2, label, font, r._SIG_WHITE)
 
 
-# ---------------------------------------------------------------- photo
-def perspective_coeffs(dst, src):
-    """Coefficients for Image.transform: maps output (dst quad) -> input (src rect)."""
-    A, B = [], []
-    for (x, y), (u, v) in zip(dst, src):
-        A += [[x, y, 1, 0, 0, 0, -u * x, -u * y], [0, 0, 0, x, y, 1, -v * x, -v * y]]
-        B += [u, v]
-    return np.linalg.solve(np.array(A, float), np.array(B, float)).tolist()
+def bezel(screen):
+    """Plain dark frame with rounded corners; outside the corners is transparent."""
+    sw, sh = screen.size
+    fw, fh = sw + 2 * BEZEL, sh + 2 * BEZEL
+    ss = 4                                           # supersampled corner masks
+    outer = Image.new("L", (fw * ss, fh * ss), 0)
+    ImageDraw.Draw(outer).rounded_rectangle((0, 0, fw * ss - 1, fh * ss - 1), radius=26 * ss, fill=255)
+    inner = Image.new("L", (sw * ss, sh * ss), 0)
+    ImageDraw.Draw(inner).rounded_rectangle((0, 0, sw * ss - 1, sh * ss - 1), radius=8 * ss, fill=255)
+    frame = Image.new("RGBA", (fw, fh), (*BEZEL_RGB, 255))
+    frame.paste(screen.convert("RGB"), (BEZEL, BEZEL), inner.resize((sw, sh), Image.LANCZOS))
+    frame.putalpha(outer.resize((fw, fh), Image.LANCZOS))
+    return frame
 
 
-def composite(panel):
-    photo = Image.open(HERE / "photo.jpg").convert("RGB")
-    W, H = photo.size
-    pw, ph = panel.size
-    # an LCD shot on a phone: a touch soft, lifted blacks, slightly cool whites
-    lcd = panel.convert("RGB")
-    lcd = Image.eval(lcd, lambda v: min(255, int(7 + 250 * (v / 255) ** 0.9 * 1.04)))
-    lcd = ImageEnhance.Color(lcd).enhance(1.18)
-    arr = np.asarray(lcd).astype(float)
-    arr[..., 2] *= 1.04
-    arr[..., 0] *= 0.98
-    lcd = Image.fromarray(np.clip(arr, 0, 255).astype("uint8"))
-    coeffs = perspective_coeffs(QUAD, [(0, 0), (pw, 0), (pw, ph), (0, ph)])
-    warped = lcd.transform((W, H), Image.PERSPECTIVE, coeffs, Image.BICUBIC)
-    mask = Image.new("L", (pw, ph), 255).transform((W, H), Image.PERSPECTIVE, coeffs, Image.BICUBIC)
-    warped = warped.filter(ImageFilter.GaussianBlur(1.1))
-    mask = mask.filter(ImageFilter.GaussianBlur(1.4))
-    # blank out the old picture a few px past the panel edge (the LCD has a thin black border)
-    from PIL import ImageDraw
-    cx = sum(x for x, _ in QUAD) / 4; cy = sum(y for _, y in QUAD) / 4
-    grow = [(x + (6 if x > cx else -3), y + (4 if y > cy else -4)) for x, y in QUAD]
-    old = Image.new("L", (W, H), 0)
-    ImageDraw.Draw(old).polygon(grow, fill=255)
-    photo = Image.composite(Image.new("RGB", (W, H), (9, 9, 16)), photo, old.filter(ImageFilter.GaussianBlur(1.5)))
-    out = Image.composite(warped, photo, mask)
-    # light spill onto the bezel
-    glow = Image.composite(warped, Image.new("RGB", (W, H)), mask).filter(ImageFilter.GaussianBlur(28))
-    outside = 1.0 - np.asarray(mask, float)[..., None] / 255.0
-    out = Image.fromarray(np.clip(np.asarray(out, float) + np.asarray(glow, float) * 0.30 * outside, 0, 255).astype("uint8"))
-    # sensor noise so the screen sits in the same photo
-    rng = np.random.default_rng(7)
-    noise = rng.normal(0, 3.2, (H, W, 1))
-    a = np.asarray(out, float)
-    m = np.asarray(mask, float)[..., None] / 255.0
-    out = Image.fromarray(np.clip(a + noise * m, 0, 255).astype("uint8"))
-    out = out.crop(CROP)
-    out = out.resize((OUT_W, round(OUT_W * out.height / out.width)), Image.LANCZOS)
-    return out
+# ---------------------------------------------------------------- tiles
+def tiles(frame, socials, now, song_x):
+    """Three rows. Rows 1-2: stats on the left, contribution grid / now shipping
+    on the right. Row 3: one tile per link. Every row is taller than a line of
+    text even on a phone, and images are top-aligned, so rows meet with no gap."""
+    fw, fh = frame.size
+    sx = int(round(BEZEL + song_x - 0.035 * W))
+    sy = int(round(BEZEL + SPLIT_Y * H))
+    dy = BEZEL + H
+    ship = now.get("url", "https://apify.com/tinyrex")
+    rows = [
+        [((0, 0, sx, sy), PANELOS_URL, "GitHub numbers on my PanelOS screen: commits and active days over the last 12 months"),
+         ((sx, 0, fw, sy), f"https://github.com/{USER}", "My contribution grid for the last weeks")],
+        [((0, sy, sx, dy), PANELOS_URL, "Active days, repos, Apify actors, last sync"),
+         ((sx, sy, fw, dy), ship, f"Now shipping: {now['title']}, {now['subtitle']}")],
+    ]
+    cuts = [0] + [int(round(BEZEL + (i + 1) * W / len(socials))) for i in range(len(socials) - 1)] + [fw]
+    rows.append([((cuts[i], dy, cuts[i + 1], fh), it["url"], it["label"]) for i, it in enumerate(socials)])
+    TILES.mkdir(parents=True, exist_ok=True)
+    for old in TILES.glob("*.png"):
+        old.unlink()
+    html = []
+    for ri, row in enumerate(rows):
+        parts = []
+        total = 0.0
+        for ci, (box, url, alt) in enumerate(row):
+            name = f"r{ri + 1}{'abcdefgh'[ci]}.png"
+            frame.crop(box).save(TILES / name, optimize=True)
+            pct = int((box[2] - box[0]) / fw * 100000) / 1000      # floor, so a row never wraps
+            total += pct
+            parts.append(f'<a href="{url}"><img src="./assets/hero/{name}" width="{pct}%" align="top" alt="{alt}"></a>')
+        html.append("".join(parts))
+    return "<p>" + "<br>".join(html) + "</p>"
+
+
+def write_readme(block):
+    text = README.read_text(encoding="utf-8")
+    new = re.sub(r"<!-- hero:start -->.*?<!-- hero:end -->",
+                 lambda m: f"<!-- hero:start -->\n{block}\n<!-- hero:end -->", text, flags=re.S)
+    assert "<!-- hero:start -->" in new, "README has no hero markers"
+    README.write_text(new, encoding="utf-8")
 
 
 def main():
     n = github_numbers()
     actors = apify_actors()
     now = json.loads((HERE / "now.json").read_text(encoding="utf-8"))
-    out = composite(render_panel(n, now, actors))
-    OUT.parent.mkdir(exist_ok=True)
-    out.save(OUT, quality=86, optimize=True, progressive=True)
-    print(json.dumps({k: v for k, v in n.items() if k not in ("weekly", "daily90")}), "actors", actors)
+    screen, socials, song_x = render_panel(n, now, actors)
+    frame = bezel(screen)
+    if os.environ.get("HERO_FULL"):
+        frame.save(os.environ["HERO_FULL"])
+    write_readme(tiles(frame, socials, now, song_x))
+    print(json.dumps({k: v for k, v in n.items() if k not in ("weekly", "daily90", "grid")}), "actors", actors)
 
 
 if __name__ == "__main__":

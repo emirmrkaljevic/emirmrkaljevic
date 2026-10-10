@@ -44,9 +44,9 @@ jobs:
       - name: Commit if changed
         if: steps.access.outputs.ok == 'true'
         run: |
-          if git diff --quiet -- assets/panel.jpg; then echo "no change"; exit 0; fi
+          if git diff --quiet -- assets README.md; then echo "no change"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git add assets/panel.jpg
+          git add assets README.md
           git commit -m "Refresh the panel"
           git push

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 170" width="480" height="170" role="img" aria-label="HATT: digital product studio">
+<style>
+.sans{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+
+.a1{animation:a1 3s ease-in-out infinite alternate} @keyframes a1{0%{transform:translateY(0)}100%{transform:translateY(74px)}}
+.up{animation:up 6s linear infinite} @keyframes up{0%{transform:translateY(0)}100%{transform:translateY(-96px)}}
+.eq rect{transform-box:fill-box;transform-origin:bottom;animation:eq .8s ease-in-out infinite alternate} @keyframes eq{0%{transform:scaleY(.2)}100%{transform:scaleY(1)}}
+.cell{animation:cell 4.8s ease-in-out infinite;opacity:.15} @keyframes cell{0%,100%{opacity:.15}20%,45%{opacity:1}}
+</style>
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1424"/><stop offset="1" stop-color="#070b14"/></linearGradient>
+  <radialGradient id="gl" cx="1" cy="0" r="1"><stop offset="0" stop-color="#a78bfa" stop-opacity=".22"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></radialGradient>
+  <clipPath id="cl"><rect width="480" height="170" rx="18"/></clipPath>
+</defs>
+<g clip-path="url(#cl)">
+  <rect width="480" height="170" fill="url(#g)"/><rect width="480" height="170" fill="url(#gl)"/>
+  <rect width="480" height="4" fill="#a78bfa"/>
+</g>
+<rect x="1" y="1" width="478" height="168" rx="17" fill="none" stroke="#1c2638" stroke-width="2"/>
+<text class="sans" x="28" y="78" font-size="34" font-weight="800" fill="#e6edf7" letter-spacing="-.5">HATT</text>
+<text class="mono" x="30" y="114" font-size="16" fill="#a78bfa">digital product studio</text>
+<g transform="translate(343 31)"><rect class="cell" x="0" y="0" width="30" height="30" rx="7" fill="#a78bfa" style="animation-delay:0.00s"/><rect class="cell" x="36" y="0" width="30" height="30" rx="7" fill="#a78bfa" style="animation-delay:0.37s"/><rect class="cell" x="72" y="0" width="30" height="30" rx="7" fill="#a78bfa" style="animation-delay:0.74s"/><rect class="cell" x="0" y="36" width="30" height="30" rx="7" fill="#a78bfa" style="animation-delay:1.11s"/><rect class="cell" x="36" y="36" width="30" height="30" rx="7" fill="#a78bfa" style="animation-delay:1.48s"/><rect class="cell" x="72" y="36" width="30" height="30" rx="7" fill="#a78bfa" style="animation-delay:1.85s"/><rect class="cell" x="0" y="72" width="30" height="30" rx="7" fill="#a78bfa" style="animation-delay:2.22s"/><rect class="cell" x="36" y="72" width="30" height="30" rx="7" fill="#a78bfa" style="animation-delay:2.59s"/><rect class="cell" x="72" y="72" width="30" height="30" rx="7" fill="#a78bfa" style="animation-delay:2.96s"/></g>
+</svg>

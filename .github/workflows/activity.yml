@@ -1,0 +1,24 @@
+name: Refresh activity heatmap
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build activity.svg
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/build_activity.py
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- assets/activity.svg; then echo "no change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add assets/activity.svg
+          git commit -m "chore: refresh activity heatmap"
+          git push

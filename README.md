@@ -1,40 +1,84 @@
-# Hi, I'm Emir Mrkaljević
+<p align="center">
+  <img src="./assets/header.svg" width="100%" alt="Hi, I'm Emir. Software developer at UniCredit, founder of Skin to Scan, builder of TinyRex and PanelOS." />
+</p>
 
-I build digital products for work that is too complex to stay messy: strategy, design and engineering for operational workflows. On the side I run **TinyRex**, a set of pay-per-result web data tools on Apify.
+<p align="center">
+  <a href="https://hatt.at"><img src="https://img.shields.io/badge/hatt.at-0d1424?style=for-the-badge&logo=googlechrome&logoColor=a78bfa" alt="hatt.at" /></a>
+  <a href="https://skintoscan.com"><img src="https://img.shields.io/badge/Skin_to_Scan-0d1424?style=for-the-badge&logo=googlelens&logoColor=34d399" alt="Skin to Scan" /></a>
+  <a href="https://apify.com/tinyrex"><img src="https://img.shields.io/badge/TinyRex_on_Apify-0d1424?style=for-the-badge&logo=json&logoColor=22d3ee" alt="TinyRex on Apify" /></a>
+  <a href="https://emirmrkaljevic.github.io/panelos-site/"><img src="https://img.shields.io/badge/PanelOS-0d1424?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHJlY3QgeD0iMiIgeT0iMyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE0IiByeD0iMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmJiZjI0IiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNOCAyMWg4TTEyIDE3djQiIHN0cm9rZT0iI2ZiYmYyNCIgc3Ryb2tlLXdpZHRoPSIyIi8%2BPC9zdmc%2B" alt="PanelOS" /></a>
+</p>
 
-## HATT · [hatt.at](https://hatt.at)
+<br />
 
-HATT builds focused digital products for workflow-critical work across health, funding and operations.
+<p align="center">
+  <img src="./assets/terminal.svg" width="640" alt="whoami: Software Developer at UniCredit (PL/SQL, Oracle APEX, Jasper, Python). Founder of Skin to Scan. Shipping TinyRex and PanelOS. BSc Software Engineering, PCAP certified." />
+</p>
 
-- **[SkinToScan](https://skintoscan.com)** (live): AI-assisted skin information for awareness. Upload a photo of a mole or lesion and get a machine-learning screening result. Not a medical diagnosis.
-- **[HATT Scout](https://hatt.at/products/grants-platform)** (private access): matches grants and tenders against reusable organisation profiles (country, industry, applicant type, consortium size, focus tags), with versioned criteria and scheduled matching.
-- **[Asset Inventory](https://hatt.at/products/asset-inventory)** (prototype): brings fixed assets, inventory teams and discrepancies into one structured view.
-- **[HATT Folio](https://hatt.at/stories/folio)**: desktop tool that generates bulk Word documents from a template and structured spreadsheet rows.
+<p align="center">
+  I write the PL/SQL, Oracle APEX and Python automation that banking runs on,<br />
+  and in my own time I ship products: an AI skin-screening platform, a dozen data tools, and a desktop app for PC case screens.
+</p>
 
-## TinyRex · [apify.com/tinyrex](https://apify.com/tinyrex)
+## ✦ What I'm building
 
-Small, pay-per-result data tools on the Apify Store. Official APIs and public feeds where possible; all of them can also be called by AI agents through Apify's MCP server.
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://skintoscan.com"><img src="./assets/card-skintoscan.svg" width="100%" alt="Skin to Scan" /></a>
+      <br /><b><a href="https://skintoscan.com">Skin to Scan</a></b> · founder &amp; developer<br />
+      <sub>Upload a photo of a mole or lesion and get a CNN-based screening result. Built for awareness, not diagnosis.</sub>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://apify.com/tinyrex"><img src="./assets/card-tinyrex.svg" width="100%" alt="TinyRex" /></a>
+      <br /><b><a href="https://apify.com/tinyrex">TinyRex</a></b> · data tools on Apify<br />
+      <sub>Jobs, e-commerce, EU tenders &amp; grants, tech-stack detection. Pay per result, callable by AI agents. <a href="https://emirmrkaljevic.github.io/tinyrex-data-tools/">Guides →</a></sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://emirmrkaljevic.github.io/panelos-site/"><img src="./assets/card-panelos.svg" width="100%" alt="PanelOS" /></a>
+      <br /><b><a href="https://emirmrkaljevic.github.io/panelos-site/">PanelOS</a></b> · Windows app<br />
+      <sub>Turns the small screen in your PC case into a live panel: temps, load and Spotify album art. Zero setup.</sub>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://hatt.at"><img src="./assets/card-hatt.svg" width="100%" alt="HATT" /></a>
+      <br /><b><a href="https://hatt.at">HATT</a></b> · product studio<br />
+      <sub>Focused digital products for workflow-critical work across health, funding and operations.</sub>
+    </td>
+  </tr>
+</table>
 
-**Jobs**
-- [Greenhouse / Lever / Ashby Jobs Scraper](https://apify.com/tinyrex/ats-jobs-scraper): open jobs from Greenhouse, Lever, Ashby, Personio, Teamtailor and Recruitee career pages
-- [Workday Jobs Scraper](https://apify.com/tinyrex/workday-jobs-scraper): all open jobs from any myworkdayjobs.com career site
-- [Arbeitsagentur Jobs Scraper](https://apify.com/tinyrex/dach-jobs-scraper): jobs from Bundesagentur für Arbeit and EURES (Germany, Austria, Switzerland, EU)
-- [Remote Jobs Scraper](https://apify.com/tinyrex/remote-jobs-scraper): Himalayas, Remote OK, We Work Remotely, Working Nomads and Arbeitnow in one run
+## ✦ Toolbox
 
-**E-commerce**
-- [Shopify Products Scraper](https://apify.com/tinyrex/shopify-products-scraper): products, prices, variants, SKUs and stock from any Shopify store
-- [WooCommerce Products Scraper](https://apify.com/tinyrex/woocommerce-products-scraper): products, prices, variations and stock from any WooCommerce store
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=py,ts,js,react,html,css,git,github,githubactions,docker,linux,vscode&perline=12" alt="Python, TypeScript, JavaScript, React, HTML, CSS, Git, GitHub, GitHub Actions, Docker, Linux, VS Code" />
+</p>
+<p align="center">
+  <code>PL/SQL</code> <code>Oracle APEX</code> <code>JasperReports</code> <code>RPA</code> <code>CNNs</code> <code>Apify</code>
+</p>
 
-**EU tenders & grants**
-- [TED EU Tenders Scraper](https://apify.com/tinyrex/ted-tenders-scraper): EU public tenders and contract awards via the official TED API
-- [EU Grants Scraper](https://apify.com/tinyrex/eu-grants-scraper): open and upcoming EU funding calls (Horizon Europe, Digital Europe and more)
+## ✦ Path
 
-**Websites & apps**
-- [Tech Stack Detector](https://apify.com/tinyrex/tech-stack-detector): bulk Wappalyzer / BuiltWith alternative for detecting website technologies
-- [App Store Reviews Scraper](https://apify.com/tinyrex/app-store-reviews-scraper): Apple App Store reviews and ratings from Apple's official feed
+```text
+$ git log --oneline --career
+* 2024-10  UniCredit · Software Developer
+           PL/SQL · Oracle APEX · Jasper · Python
+* 2024-07  Skin to Scan · Founder & Developer
+           AI/ML · CNNs
+* 2024     Virgin Pulse · RPA Developer
+* 2023-24  NLB Bank · RPA Developer
+* 2023     Tech For Good Inc · Intern
+* 2022-23  Info Studio · Intern · React, TypeScript
+* init     BSc Software Engineering · PCAP certified
+```
 
-Guides and examples: [emirmrkaljevic.github.io/tinyrex-data-tools](https://emirmrkaljevic.github.io/tinyrex-data-tools/)
+## ✦ Last 12 months
 
-## Links
+<p align="center">
+  <img src="./assets/activity.svg" width="100%" alt="GitHub contribution heatmap for the last 12 months" />
+</p>
 
-[hatt.at](https://hatt.at) · [skintoscan.com](https://skintoscan.com) · [TinyRex on Apify](https://apify.com/tinyrex)
+<p align="center">
+  <img src="./assets/footer.svg" width="100%" alt="build, ship, learn, repeat" />
+</p>

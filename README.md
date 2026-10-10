@@ -6,8 +6,7 @@ Before the bank I built RPA bots at NLB and Virgin Pulse, which is a polite way 
 
 After hours I build small products and find out which ones anyone actually wants.
 
-<img src="./assets/panelos.jpg" width="600" alt="PanelOS on a small screen inside a PC case, showing CPU 57°, GPU 64° and the song currently playing" />
-
+<img src="./assets/panelos.jpg" width="600" alt="PanelOS on a small screen inside a PC case, showing CPU 57°, GPU 64° and the song currently playing" /><br />
 <sub>PanelOS on the little screen in my PC case. Temps are fine. The playlist is a separate conversation.</sub>
 
 ### What I'm working on

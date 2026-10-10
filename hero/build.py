@@ -32,27 +32,59 @@ def gql(query, **vars):
     return json.loads(subprocess.check_output(args))["data"]
 
 
+REFRESH_MSG = "Refresh the panel"
+
+
+def refresh_commits_by_day(since):
+    """Header-refresh commits that GitHub attributed to me (the first two, before
+    they moved to the bot identity). They are not real activity, so they get
+    subtracted from the numbers. Keyed by local calendar date."""
+    out = {}
+    try:
+        raw = subprocess.check_output(
+            ["gh", "api", "--paginate",
+             f"repos/{USER}/{USER}/commits?author={USER}&since={since}&per_page=100",
+             "--jq", f'.[] | select(.commit.message | startswith("{REFRESH_MSG}")) | .commit.author.date'],
+            text=True)
+    except Exception as e:
+        print("warning: could not list refresh commits:", e, file=sys.stderr)
+        return out
+    for line in raw.split():
+        d = datetime.fromisoformat(line.replace("Z", "+00:00")).astimezone().date().isoformat()
+        out[d] = out.get(d, 0) + 1
+    return out
+
+
 def github_numbers():
     d = gql("""query($u:String!){user(login:$u){
       repositories(privacy:PUBLIC, ownerAffiliations:OWNER){totalCount}
       contributionsCollection{totalCommitContributions
         contributionCalendar{totalContributions weeks{contributionDays{date contributionCount}}}}}}""", u=USER)["user"]
     cc = d["contributionsCollection"]
-    days = [x for w in cc["contributionCalendar"]["weeks"] for x in w["contributionDays"]]
+    weeks = [[dict(x) for x in w["contributionDays"]] for w in cc["contributionCalendar"]["weeks"]]
+    days = [x for w in weeks for x in w]
+    # drop the panel's own refresh commits from every number
+    fake = refresh_commits_by_day(days[0]["date"] + "T00:00:00Z") if days else {}
+    removed = 0
+    for x in days:
+        k = min(fake.get(x["date"], 0), x["contributionCount"])
+        x["contributionCount"] -= k
+        removed += k
     counts = [x["contributionCount"] for x in days]
     longest = run = 0
     for c in counts:
         run = run + 1 if c else 0
         longest = max(longest, run)
-    weekly = [sum(x["contributionCount"] for x in w["contributionDays"]) for w in cc["contributionCalendar"]["weeks"]]
+    weekly = [sum(x["contributionCount"] for x in w) for w in weeks]
     return {
-        "commits": cc["totalCommitContributions"],
-        "contributions": cc["contributionCalendar"]["totalContributions"],
+        "commits": max(0, cc["totalCommitContributions"] - removed),
+        "contributions": max(0, cc["contributionCalendar"]["totalContributions"] - removed),
         "active_days": sum(1 for c in counts if c),
         "longest": longest,
         "repos": d["repositories"]["totalCount"],
         "weekly": weekly,
         "daily90": counts[-90:],
+        "refresh_excluded": removed,
     }
 
 

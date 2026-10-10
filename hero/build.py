@@ -63,8 +63,8 @@ def github_numbers():
     cc = d["contributionsCollection"]
     weeks = [[dict(x) for x in w["contributionDays"]] for w in cc["contributionCalendar"]["weeks"]]
     days = [x for w in weeks for x in w]
-    # drop the panel's own refresh commits from every number
-    fake = refresh_commits_by_day(days[0]["date"] + "T00:00:00Z") if days else {}
+    # Emir's choice: count every commit, including the daily refresh commits
+    fake = {}
     removed = 0
     for x in days:
         k = min(fake.get(x["date"], 0), x["contributionCount"])

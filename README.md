@@ -35,6 +35,7 @@
 
 - **[ESPnet](https://github.com/espnet/espnet)** (Carnegie Mellon's speech processing toolkit): added `use_sdpa` to the GST style encoder and fixed a missing `dropout_rate` that broke training with it on. [#6889](https://github.com/espnet/espnet/pull/6889), merged.
 - **[ESPnet](https://github.com/espnet/espnet)** again: passed `use_sdpa` through the SLU `TransformerPostEncoder`. [#6906](https://github.com/espnet/espnet/pull/6906), approved (merge pending).
+- **[uutils coreutils](https://github.com/uutils/coreutils)** (the Rust rewrite of GNU coreutils): found with [behave](https://github.com/emirmrkaljevic/behave) that `cut --output-delimiter` rejected values starting with `-`. Reported in [#15341](https://github.com/uutils/coreutils/issues/15341), fixed the same day.
 
 ---
 

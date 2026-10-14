@@ -30,6 +30,10 @@
 - **[behave](https://github.com/emirmrkaljevic/behave)**: records how a CLI behaves (flags, stdin, exit codes, edge cases) so you can check that your Rust or Go rewrite does the same. Go, CLI and MCP server.
 - **[shrinkwatch-eu](https://github.com/emirmrkaljevic/shrinkwatch-eu)**: a Chrome and Firefox extension for EU and Balkan supermarket web shops. Shows price per kg or litre and warns when a pack got smaller for the same price.
 
+### Contributions
+
+- **[ESPnet](https://github.com/espnet/espnet)** (Carnegie Mellon's speech processing toolkit): added `use_sdpa` to the GST style encoder and fixed a missing `dropout_rate` that broke training with it on. [#6889](https://github.com/espnet/espnet/pull/6889), merged.
+
 ---
 
 [LinkedIn](https://www.linkedin.com/in/emirmrkaljevic) · [Upwork](https://www.upwork.com/freelancers/~010819c711770f4f81) · [dev.to](https://dev.to/emirmrkaljevic) · [hatt.at](https://hatt.at) · [skintoscan.com](https://skintoscan.com) · [apify.com/tinyrex](https://apify.com/tinyrex) · [PanelOS](https://emirmrkaljevic.github.io/panelos-site/)

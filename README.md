@@ -33,6 +33,7 @@
 ### Contributions
 
 - **[ESPnet](https://github.com/espnet/espnet)** (Carnegie Mellon's speech processing toolkit): added `use_sdpa` to the GST style encoder and fixed a missing `dropout_rate` that broke training with it on. [#6889](https://github.com/espnet/espnet/pull/6889), merged.
+- **[ESPnet](https://github.com/espnet/espnet)** again: passed `use_sdpa` through the SLU `TransformerPostEncoder`. [#6906](https://github.com/espnet/espnet/pull/6906), approved (merge pending).
 
 ---
 

@@ -29,6 +29,7 @@
 - **[usb-rea](https://github.com/emirmrkaljevic/usb-rea)**: point it at a USB gadget that only works with a vendor app. It captures the traffic, works out the protocol and writes an open Python/libusb driver. CLI and MCP server.
 - **[behave](https://github.com/emirmrkaljevic/behave)**: records how a CLI behaves (flags, stdin, exit codes, edge cases) so you can check that your Rust or Go rewrite does the same. Go, CLI and MCP server.
 - **[shrinkwatch-eu](https://github.com/emirmrkaljevic/shrinkwatch-eu)**: a Chrome and Firefox extension for EU and Balkan supermarket web shops. Shows price per kg or litre and warns when a pack got smaller for the same price.
+- **[truediscount](https://github.com/emirmrkaljevic/truediscount)**: a Chrome and Firefox extension that checks if a shop discount is real by comparing the old price with the lowest price of the last 30 days (EU Omnibus rule). Shows a small price graph and keeps all data in the browser.
 - **[mesh2cad](https://github.com/emirmrkaljevic/mesh2cad)**: turns a scanned or printed STL mesh back into an editable STEP CAD model with exact planes, cylinders and spheres. CLI and MCP server.
 
 ### Contributions

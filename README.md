@@ -5,6 +5,7 @@
 <sub>The screen is <a href="https://emirmrkaljevic.github.io/panelos-site/">PanelOS</a>, the Windows app I'm building for the small USB screens people put in PC cases. Here it shows my GitHub numbers instead of CPU temps, rendered every morning with the app's own theme code. The bottom row links out.</sub>
 
 <p align="center"><a href="https://skintoscan.com/#packages"><img src="https://img.shields.io/badge/%E2%98%95_Support_me-Get_a_SkinToScan_pack-ff5f5f?style=for-the-badge" alt="Support me: get a SkinToScan pack"></a><br><sub>If you find this useful, you can support me by getting a SkinToScan pack, my other project. It's a one-time purchase that directly funds my open-source work.</sub></p>
+<p align="center"><a href="https://skintoscan.com/checkout/?add-to-cart=138"><img src="https://img.shields.io/badge/1_Check-%E2%82%AC4.49-ff5f5f?style=for-the-badge" alt="Buy 1 Picture Check, €4.49"></a> <a href="https://skintoscan.com/checkout/?add-to-cart=139"><img src="https://img.shields.io/badge/5_Pack-%E2%82%AC19.99-ff5f5f?style=for-the-badge" alt="Buy 5 Picture Pack, €19.99"></a> <a href="https://skintoscan.com/checkout/?add-to-cart=140"><img src="https://img.shields.io/badge/15_Pack-%E2%82%AC54.99-ff5f5f?style=for-the-badge" alt="Buy 15 Picture Pack, €54.99"></a></p>
 
 ### What I run
 

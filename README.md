@@ -47,6 +47,7 @@
 - **[TensorBlock awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)** again: added [usb-rea](https://github.com/emirmrkaljevic/usb-rea) to the Hardware & IoT list. [#3944](https://github.com/TensorBlock/awesome-mcp-servers/pull/3944), merged.
 - **[TensorBlock awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)** once more: added [behave](https://github.com/emirmrkaljevic/behave) to the Code Analysis & Quality list. [#3955](https://github.com/TensorBlock/awesome-mcp-servers/pull/3955), merged.
 - **[awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)** (the largest community list of MCP servers): added [usb-rea](https://github.com/emirmrkaljevic/usb-rea). [#16364](https://github.com/punkpeye/awesome-mcp-servers/pull/16364), merged.
+- **[awesome-reverse-engineering](https://github.com/morluto/awesome-reverse-engineering)** (a curated reverse engineering list): added [usb-rea](https://github.com/emirmrkaljevic/usb-rea) to the Firmware and hardware section. [#13](https://github.com/morluto/awesome-reverse-engineering/pull/13), merged.
 
 ---
 

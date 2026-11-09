@@ -46,7 +46,7 @@
 - **[Kando](https://github.com/kando-menu/kando)** (cross-platform pie menu): 1 merged ([#1575](https://github.com/kando-menu/kando/pull/1575)).
 
 <details>
-<summary>Curated lists (8)</summary>
+<summary>Curated lists (9)</summary>
 
 - **[TensorBlock awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)**: 5 merged ([#3825](https://github.com/TensorBlock/awesome-mcp-servers/pull/3825), [#3944](https://github.com/TensorBlock/awesome-mcp-servers/pull/3944), [#3955](https://github.com/TensorBlock/awesome-mcp-servers/pull/3955), [#4905](https://github.com/TensorBlock/awesome-mcp-servers/pull/4905), [#5444](https://github.com/TensorBlock/awesome-mcp-servers/pull/5444)), listing mesh2cad, usb-rea, behave, iotaudit and tinyrex-mcp.
 - **[awesome-mcp-list](https://github.com/MobinX/awesome-mcp-list)**: 3 landed ([#840](https://github.com/MobinX/awesome-mcp-list/pull/840), [#889](https://github.com/MobinX/awesome-mcp-list/pull/889), [#1000](https://github.com/MobinX/awesome-mcp-list/pull/1000)), iotaudit, usb-rea and mesh2cad (direct commits for conflicts).
@@ -56,6 +56,7 @@
 - **[awesome-iot](https://github.com/phodal/awesome-iot)**: 1 merged ([#191](https://github.com/phodal/awesome-iot/pull/191)), iotaudit.
 - **[awesome-embedded-security](https://github.com/hexsecs/awesome-embedded-security)**: 1 merged ([#78](https://github.com/hexsecs/awesome-embedded-security/pull/78)), usb-rea.
 - **[Awesome-REA](https://github.com/reacher-z/Awesome-REA)**: 1 landed ([#2271](https://github.com/reacher-z/Awesome-REA/issues/2271)), usb-rea.
+- **[Sagargupta16 awesome-mcp-servers](https://github.com/Sagargupta16/awesome-mcp-servers)**: 1 merged ([#348](https://github.com/Sagargupta16/awesome-mcp-servers/pull/348)), behave.
 
 </details>
 

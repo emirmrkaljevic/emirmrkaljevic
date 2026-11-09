@@ -48,7 +48,7 @@
 <details>
 <summary>Curated lists (7)</summary>
 
-- **[TensorBlock awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)**: 4 merged ([#3825](https://github.com/TensorBlock/awesome-mcp-servers/pull/3825), [#3944](https://github.com/TensorBlock/awesome-mcp-servers/pull/3944), [#3955](https://github.com/TensorBlock/awesome-mcp-servers/pull/3955), [#4905](https://github.com/TensorBlock/awesome-mcp-servers/pull/4905)), listing mesh2cad, usb-rea, behave and iotaudit.
+- **[TensorBlock awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)**: 5 merged ([#3825](https://github.com/TensorBlock/awesome-mcp-servers/pull/3825), [#3944](https://github.com/TensorBlock/awesome-mcp-servers/pull/3944), [#3955](https://github.com/TensorBlock/awesome-mcp-servers/pull/3955), [#4905](https://github.com/TensorBlock/awesome-mcp-servers/pull/4905), [#5444](https://github.com/TensorBlock/awesome-mcp-servers/pull/5444)), listing mesh2cad, usb-rea, behave, iotaudit and tinyrex-mcp.
 - **[awesome-mcp-list](https://github.com/MobinX/awesome-mcp-list)**: 3 landed ([#840](https://github.com/MobinX/awesome-mcp-list/pull/840), [#889](https://github.com/MobinX/awesome-mcp-list/pull/889), [#1000](https://github.com/MobinX/awesome-mcp-list/pull/1000)), iotaudit, usb-rea and mesh2cad (direct commits for conflicts).
 - **[awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)**: 1 merged ([#16364](https://github.com/punkpeye/awesome-mcp-servers/pull/16364)), usb-rea.
 - **[awesome-reverse-engineering](https://github.com/morluto/awesome-reverse-engineering)**: 1 merged ([#13](https://github.com/morluto/awesome-reverse-engineering/pull/13)), usb-rea.

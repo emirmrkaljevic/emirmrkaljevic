@@ -46,7 +46,7 @@
 - **[Kando](https://github.com/kando-menu/kando)** (cross-platform pie menu): 1 merged ([#1575](https://github.com/kando-menu/kando/pull/1575)).
 
 <details>
-<summary>Curated lists (11)</summary>
+<summary>Curated lists (12)</summary>
 
 - **[TensorBlock awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)**: 5 merged ([#3825](https://github.com/TensorBlock/awesome-mcp-servers/pull/3825), [#3944](https://github.com/TensorBlock/awesome-mcp-servers/pull/3944), [#3955](https://github.com/TensorBlock/awesome-mcp-servers/pull/3955), [#4905](https://github.com/TensorBlock/awesome-mcp-servers/pull/4905), [#5444](https://github.com/TensorBlock/awesome-mcp-servers/pull/5444)), listing mesh2cad, usb-rea, behave, iotaudit and tinyrex-mcp.
 - **[awesome-mcp-list](https://github.com/MobinX/awesome-mcp-list)**: 3 landed ([#840](https://github.com/MobinX/awesome-mcp-list/pull/840), [#889](https://github.com/MobinX/awesome-mcp-list/pull/889), [#1000](https://github.com/MobinX/awesome-mcp-list/pull/1000)), iotaudit, usb-rea and mesh2cad (direct commits for conflicts).
@@ -59,6 +59,7 @@
 - **[Sagargupta16 awesome-mcp-servers](https://github.com/Sagargupta16/awesome-mcp-servers)**: 3 merged ([#347](https://github.com/Sagargupta16/awesome-mcp-servers/pull/347), [#348](https://github.com/Sagargupta16/awesome-mcp-servers/pull/348), [#349](https://github.com/Sagargupta16/awesome-mcp-servers/pull/349)), usb-rea, behave and iotaudit.
 - **[awesome-security-agent-harnesses](https://github.com/Ed-Marcavage/awesome-security-agent-harnesses)**: 1 merged ([#12](https://github.com/Ed-Marcavage/awesome-security-agent-harnesses/pull/12)), usb-rea.
 - **[awesome-homelab](https://github.com/Minh141120/awesome-homelab)**: 1 merged ([#16](https://github.com/Minh141120/awesome-homelab/pull/16)), iotaudit.
+- **[awesome-iot-and-hardware-security](https://github.com/kayranfatih/awesome-iot-and-hardware-security)**: 1 merged ([#4](https://github.com/kayranfatih/awesome-iot-and-hardware-security/pull/4)), iotaudit.
 
 </details>
 

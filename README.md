@@ -58,7 +58,7 @@
 - **[Awesome-REA](https://github.com/reacher-z/Awesome-REA)**: 1 landed ([#2271](https://github.com/reacher-z/Awesome-REA/issues/2271)), usb-rea.
 - **[Sagargupta16 awesome-mcp-servers](https://github.com/Sagargupta16/awesome-mcp-servers)**: 3 merged ([#347](https://github.com/Sagargupta16/awesome-mcp-servers/pull/347), [#348](https://github.com/Sagargupta16/awesome-mcp-servers/pull/348), [#349](https://github.com/Sagargupta16/awesome-mcp-servers/pull/349)), usb-rea, behave and iotaudit.
 - **[awesome-security-agent-harnesses](https://github.com/Ed-Marcavage/awesome-security-agent-harnesses)**: 1 merged ([#12](https://github.com/Ed-Marcavage/awesome-security-agent-harnesses/pull/12)), usb-rea.
-- **[awesome-homelab](https://github.com/Minh141120/awesome-homelab)**: 1 merged ([#16](https://github.com/Minh141120/awesome-homelab/pull/16)).
+- **[awesome-homelab](https://github.com/Minh141120/awesome-homelab)**: 1 merged ([#16](https://github.com/Minh141120/awesome-homelab/pull/16)), iotaudit.
 
 </details>
 

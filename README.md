@@ -53,13 +53,13 @@
 - **[awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers)**: 1 merged ([#16364](https://github.com/punkpeye/awesome-mcp-servers/pull/16364)), usb-rea.
 - **[awesome-reverse-engineering](https://github.com/morluto/awesome-reverse-engineering)**: 1 merged ([#13](https://github.com/morluto/awesome-reverse-engineering/pull/13)), usb-rea.
 - **[awesome-testing](https://github.com/TheJambo/awesome-testing)**: 1 merged ([#299](https://github.com/TheJambo/awesome-testing/pull/299)), behave.
-- **[awesome-iot](https://github.com/phodal/awesome-iot)**: 1 merged ([#191](https://github.com/phodal/awesome-iot/pull/191)), iotaudit.
+- **[awesome-iot](https://github.com/phodal/awesome-iot)**: 2 merged ([#191](https://github.com/phodal/awesome-iot/pull/191), [#193](https://github.com/phodal/awesome-iot/pull/193)), iotaudit and usb-rea.
 - **[awesome-embedded-security](https://github.com/hexsecs/awesome-embedded-security)**: 1 merged ([#78](https://github.com/hexsecs/awesome-embedded-security/pull/78)), usb-rea.
 - **[Awesome-REA](https://github.com/reacher-z/Awesome-REA)**: 1 landed ([#2271](https://github.com/reacher-z/Awesome-REA/issues/2271)), usb-rea.
 - **[Sagargupta16 awesome-mcp-servers](https://github.com/Sagargupta16/awesome-mcp-servers)**: 4 merged ([#347](https://github.com/Sagargupta16/awesome-mcp-servers/pull/347), [#348](https://github.com/Sagargupta16/awesome-mcp-servers/pull/348), [#349](https://github.com/Sagargupta16/awesome-mcp-servers/pull/349), [#352](https://github.com/Sagargupta16/awesome-mcp-servers/pull/352)), usb-rea, behave, iotaudit and tinyrex-mcp.
 - **[awesome-security-agent-harnesses](https://github.com/Ed-Marcavage/awesome-security-agent-harnesses)**: 1 merged ([#12](https://github.com/Ed-Marcavage/awesome-security-agent-harnesses/pull/12)), usb-rea.
 - **[awesome-homelab](https://github.com/Minh141120/awesome-homelab)**: 1 merged ([#16](https://github.com/Minh141120/awesome-homelab/pull/16)), iotaudit.
-- **[awesome-iot-and-hardware-security](https://github.com/kayranfatih/awesome-iot-and-hardware-security)**: 1 merged ([#4](https://github.com/kayranfatih/awesome-iot-and-hardware-security/pull/4)), iotaudit.
+- **[awesome-iot-and-hardware-security](https://github.com/kayranfatih/awesome-iot-and-hardware-security)**: 2 merged ([#3](https://github.com/kayranfatih/awesome-iot-and-hardware-security/pull/3), [#4](https://github.com/kayranfatih/awesome-iot-and-hardware-security/pull/4)), usb-rea and iotaudit.
 
 </details>
 

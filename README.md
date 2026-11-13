@@ -49,7 +49,7 @@
 - **[Kando](https://github.com/kando-menu/kando)** (cross-platform pie menu): 1 merged ([#1575](https://github.com/kando-menu/kando/pull/1575)).
 
 <details>
-<summary>Curated lists (18)</summary>
+<summary>Curated lists (19)</summary>
 
 - **[TensorBlock awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)**: 5 merged ([#3825](https://github.com/TensorBlock/awesome-mcp-servers/pull/3825), [#3944](https://github.com/TensorBlock/awesome-mcp-servers/pull/3944), [#3955](https://github.com/TensorBlock/awesome-mcp-servers/pull/3955), [#4905](https://github.com/TensorBlock/awesome-mcp-servers/pull/4905), [#5444](https://github.com/TensorBlock/awesome-mcp-servers/pull/5444)), listing mesh2cad, usb-rea, behave, iotaudit and tinyrex-mcp.
 - **[awesome-mcp-list](https://github.com/MobinX/awesome-mcp-list)**: 3 landed ([#840](https://github.com/MobinX/awesome-mcp-list/pull/840), [#889](https://github.com/MobinX/awesome-mcp-list/pull/889), [#1000](https://github.com/MobinX/awesome-mcp-list/pull/1000)), iotaudit, usb-rea and mesh2cad (direct commits for conflicts).
@@ -69,6 +69,7 @@
 - **[toolsdk-mcp-registry](https://github.com/toolsdk-ai/toolsdk-mcp-registry)**: 1 merged ([#1371](https://github.com/toolsdk-ai/toolsdk-mcp-registry/pull/1371)), iotaudit.
 - **[personal-finance-awesome](https://github.com/ashishb/personal-finance-awesome)**: 1 merged ([#85](https://github.com/ashishb/personal-finance-awesome/pull/85)), truediscount.
 - **[xszn.github.io](https://github.com/xszn/xszn.github.io)**: 1 merged ([#15](https://github.com/xszn/xszn.github.io/pull/15)), shrinkwatch-eu.
+- **[awesome-mcp-servers-devops](https://github.com/WagnerAgent/awesome-mcp-servers-devops)**: 1 merged ([#136](https://github.com/WagnerAgent/awesome-mcp-servers-devops/pull/136)), behave.
 
 </details>
 

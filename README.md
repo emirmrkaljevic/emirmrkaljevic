@@ -31,12 +31,44 @@
 
 ### Open source
 
-- **[usb-rea](https://github.com/emirmrkaljevic/usb-rea)** [![stars](https://img.shields.io/github/stars/emirmrkaljevic/usb-rea?style=flat&label=%E2%98%85&color=d4a843)](https://github.com/emirmrkaljevic/usb-rea/stargazers): point it at a USB gadget that only works with a vendor app. It captures the traffic, works out the protocol and writes an open Python/libusb driver. CLI and MCP server.
-- **[mesh2cad](https://github.com/emirmrkaljevic/mesh2cad)** [![stars](https://img.shields.io/github/stars/emirmrkaljevic/mesh2cad?style=flat&label=%E2%98%85&color=d4a843)](https://github.com/emirmrkaljevic/mesh2cad/stargazers): turns a scanned or printed STL mesh back into an editable STEP CAD model with exact planes, cylinders and spheres. CLI and MCP server.
-- **[iotaudit](https://github.com/emirmrkaljevic/iotaudit)** [![stars](https://img.shields.io/github/stars/emirmrkaljevic/iotaudit?style=flat&label=%E2%98%85&color=d4a843)](https://github.com/emirmrkaljevic/iotaudit/stargazers): audit your own smart-home devices (who they talk to, encryption, open ports, idle uploads, A to F grade report). CLI and MCP server.
-- **[behave](https://github.com/emirmrkaljevic/behave)** [![stars](https://img.shields.io/github/stars/emirmrkaljevic/behave?style=flat&label=%E2%98%85&color=d4a843)](https://github.com/emirmrkaljevic/behave/stargazers): records how a CLI behaves (flags, stdin, exit codes, edge cases) so you can check that your Rust or Go rewrite does the same. Go, CLI and MCP server.
-- **[shrinkwatch-eu](https://github.com/emirmrkaljevic/shrinkwatch-eu)**: a Chrome and Firefox extension for EU and Balkan supermarket web shops. Shows price per kg or litre and warns when a pack got smaller for the same price ([v0.3.16](https://github.com/emirmrkaljevic/shrinkwatch-eu/releases/tag/v0.3.16), now with Morrisons UK and Picard FR). [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/shrinkwatch-eu/)
-- **[truediscount](https://github.com/emirmrkaljevic/truediscount)**: a Chrome and Firefox extension that checks if a shop discount is real by comparing the old price with the lowest price of the last 30 days (EU Omnibus rule). Shows a small price graph, has watchlist search, warns when the price was raised 31-90 days before a sale, supports more shop country sites incl. MediaWorld Italy and MediaMarkt Switzerland (v0.13.4) and keeps all data in the browser. [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/truediscount/)
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://github.com/emirmrkaljevic/usb-rea"><img src="./assets/projects/usb-rea.jpg" width="100%" alt="usb-rea terminal demo: recovered fan protocol and generated driver" /></a>
+      <p><b><a href="https://github.com/emirmrkaljevic/usb-rea">usb-rea</a></b> <a href="https://github.com/emirmrkaljevic/usb-rea/stargazers"><img src="https://img.shields.io/github/stars/emirmrkaljevic/usb-rea?style=flat&label=%E2%98%85&color=d4a843" alt="stars" /></a><br />
+      point it at a USB gadget that only works with a vendor app. It captures the traffic, works out the protocol and writes an open Python/libusb driver. CLI and MCP server.</p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://github.com/emirmrkaljevic/mesh2cad"><img src="./assets/projects/mesh2cad.jpg" width="100%" alt="mesh2cad before and after: noisy STL mesh versus exact STEP CAD" /></a>
+      <p><b><a href="https://github.com/emirmrkaljevic/mesh2cad">mesh2cad</a></b> <a href="https://github.com/emirmrkaljevic/mesh2cad/stargazers"><img src="https://img.shields.io/github/stars/emirmrkaljevic/mesh2cad?style=flat&label=%E2%98%85&color=d4a843" alt="stars" /></a><br />
+      turns a scanned or printed STL mesh back into an editable STEP CAD model with exact planes, cylinders and spheres. CLI and MCP server.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://github.com/emirmrkaljevic/iotaudit"><img src="./assets/projects/iotaudit.jpg" width="100%" alt="iotaudit anonymized sample report with an A to F grade" /></a>
+      <p><b><a href="https://github.com/emirmrkaljevic/iotaudit">iotaudit</a></b> <a href="https://github.com/emirmrkaljevic/iotaudit/stargazers"><img src="https://img.shields.io/github/stars/emirmrkaljevic/iotaudit?style=flat&label=%E2%98%85&color=d4a843" alt="stars" /></a><br />
+      audit your own smart-home devices (who they talk to, encryption, open ports, idle uploads, A to F grade report). CLI and MCP server.</p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://github.com/emirmrkaljevic/behave"><img src="./assets/projects/behave.jpg" width="100%" alt="behave terminal demo: probing jq and diffing gojq" /></a>
+      <p><b><a href="https://github.com/emirmrkaljevic/behave">behave</a></b> <a href="https://github.com/emirmrkaljevic/behave/stargazers"><img src="https://img.shields.io/github/stars/emirmrkaljevic/behave?style=flat&label=%E2%98%85&color=d4a843" alt="stars" /></a><br />
+      records how a CLI behaves (flags, stdin, exit codes, edge cases) so you can check that your Rust or Go rewrite does the same. Go, CLI and MCP server.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://github.com/emirmrkaljevic/shrinkwatch-eu"><img src="./assets/projects/shrinkwatch-eu.jpg" width="100%" alt="ShrinkWatch EU on a fictional demo product, showing a shrinkflation warning" /></a>
+      <p><b><a href="https://github.com/emirmrkaljevic/shrinkwatch-eu">shrinkwatch-eu</a></b><br />
+      a Chrome and Firefox extension that shows price per kg or litre and flags shrinkflation on EU and Balkan supermarket shops (<a href="https://github.com/emirmrkaljevic/shrinkwatch-eu/releases/tag/v0.3.16">v0.3.16</a>, Morrisons UK and Picard FR). <a href="https://addons.mozilla.org/en-US/firefox/addon/shrinkwatch-eu/">Firefox Add-ons</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://github.com/emirmrkaljevic/truediscount"><img src="./assets/projects/truediscount.jpg" width="100%" alt="truediscount on a demo product, flagging an inflated discount with a 30-day price graph" /></a>
+      <p><b><a href="https://github.com/emirmrkaljevic/truediscount">truediscount</a></b><br />
+      a Chrome and Firefox extension that checks if a shop discount is real against the last 30 days (EU Omnibus). Price graph, watchlist, data stays in the browser (v0.13.4). <a href="https://addons.mozilla.org/en-US/firefox/addon/truediscount/">Firefox Add-ons</a></p>
+    </td>
+  </tr>
+</table>
 
 ### Contributions
 

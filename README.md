@@ -64,7 +64,7 @@
 - **[awesome-homelab](https://github.com/Minh141120/awesome-homelab)**: 1 merged ([#16](https://github.com/Minh141120/awesome-homelab/pull/16)), iotaudit.
 - **[awesome-iot-and-hardware-security](https://github.com/kayranfatih/awesome-iot-and-hardware-security)**: 2 merged ([#3](https://github.com/kayranfatih/awesome-iot-and-hardware-security/pull/3), [#4](https://github.com/kayranfatih/awesome-iot-and-hardware-security/pull/4)), usb-rea and iotaudit.
 - **[OSSDrop](https://github.com/OSSDrop/OSSDrop)**: 2 merged ([#114](https://github.com/OSSDrop/OSSDrop/pull/114), [#121](https://github.com/OSSDrop/OSSDrop/pull/121)), behave and usb-rea.
-- **[mcpHQ awesome-mcp-servers](https://github.com/mcpHQ/awesome-mcp-servers)**: 2 merged ([#752](https://github.com/mcpHQ/awesome-mcp-servers/pull/752), [#753](https://github.com/mcpHQ/awesome-mcp-servers/pull/753)), iotaudit and behave.
+- **[mcpHQ awesome-mcp-servers](https://github.com/mcpHQ/awesome-mcp-servers)**: 3 merged ([#752](https://github.com/mcpHQ/awesome-mcp-servers/pull/752), [#753](https://github.com/mcpHQ/awesome-mcp-servers/pull/753), [#803](https://github.com/mcpHQ/awesome-mcp-servers/pull/803)), iotaudit, behave and tinyrex-mcp.
 - **[awesome-iot (HQarroum)](https://github.com/HQarroum/awesome-iot)**: 1 merged ([#165](https://github.com/HQarroum/awesome-iot/pull/165)), usb-rea.
 - **[toolsdk-mcp-registry](https://github.com/toolsdk-ai/toolsdk-mcp-registry)**: 1 merged ([#1371](https://github.com/toolsdk-ai/toolsdk-mcp-registry/pull/1371)), iotaudit.
 - **[personal-finance-awesome](https://github.com/ashishb/personal-finance-awesome)**: 1 merged ([#85](https://github.com/ashishb/personal-finance-awesome/pull/85)), truediscount.

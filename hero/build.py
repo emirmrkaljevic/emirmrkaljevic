@@ -231,7 +231,7 @@ def heatmap(r, img, grid):
 
 
 def dock(r, screen, socials):
-    """Link strip at the bottom of the screen: five equal cells."""
+    """Link strip at the bottom of the screen: equal cells, one per link."""
     d = ImageDraw.Draw(screen)
     y0 = H
     line = _mix(BG, (255, 255, 255), 0.10)

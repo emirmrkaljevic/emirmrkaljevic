@@ -60,7 +60,7 @@
     <td width="50%" valign="top">
       <a href="https://github.com/emirmrkaljevic/shrinkwatch-eu"><img src="./assets/projects/shrinkwatch-eu.jpg" width="100%" alt="ShrinkWatch EU on a fictional demo product, showing a shrinkflation warning" /></a>
       <p><b><a href="https://github.com/emirmrkaljevic/shrinkwatch-eu">shrinkwatch-eu</a></b><br />
-      a Chrome and Firefox extension that shows price per kg or litre and flags shrinkflation on EU and Balkan supermarket shops (<a href="https://github.com/emirmrkaljevic/shrinkwatch-eu/releases/tag/v0.3.16">v0.3.16</a>, Morrisons UK and Picard FR). <a href="https://addons.mozilla.org/en-US/firefox/addon/shrinkwatch-eu/">Firefox Add-ons</a></p>
+      a Chrome and Firefox extension that shows price per kg or litre and flags shrinkflation on EU and Balkan supermarket shops (<a href="https://github.com/emirmrkaljevic/shrinkwatch-eu/releases/tag/v0.3.17">v0.3.17</a>, Edeka DE). <a href="https://addons.mozilla.org/en-US/firefox/addon/shrinkwatch-eu/">Firefox Add-ons</a></p>
     </td>
     <td width="50%" valign="top">
       <a href="https://github.com/emirmrkaljevic/truediscount"><img src="./assets/projects/truediscount.jpg" width="100%" alt="truediscount on a demo product, flagging an inflated discount with a 30-day price graph" /></a>

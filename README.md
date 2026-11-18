@@ -83,7 +83,7 @@
 - **[Kando](https://github.com/kando-menu/kando)** (cross-platform pie menu): [1 merged PR](https://github.com/kando-menu/kando/pulls?q=is%3Apr+author%3Aemirmrkaljevic+is%3Amerged).
 
 <details>
-<summary>Curated lists (25)</summary>
+<summary>Curated lists (26)</summary>
 
 - **[TensorBlock awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)**: 5 merged ([#3825](https://github.com/TensorBlock/awesome-mcp-servers/pull/3825), [#3944](https://github.com/TensorBlock/awesome-mcp-servers/pull/3944), [#3955](https://github.com/TensorBlock/awesome-mcp-servers/pull/3955), [#4905](https://github.com/TensorBlock/awesome-mcp-servers/pull/4905), [#5444](https://github.com/TensorBlock/awesome-mcp-servers/pull/5444)), listing mesh2cad, usb-rea, behave, iotaudit and tinyrex-mcp.
 - **[awesome-mcp-list](https://github.com/MobinX/awesome-mcp-list)**: 4 landed ([#840](https://github.com/MobinX/awesome-mcp-list/pull/840), [#889](https://github.com/MobinX/awesome-mcp-list/pull/889), [#1000](https://github.com/MobinX/awesome-mcp-list/pull/1000), [#1211](https://github.com/MobinX/awesome-mcp-list/pull/1211)), iotaudit, usb-rea and mesh2cad (direct commits for conflicts).
@@ -107,9 +107,10 @@
 - **[awesome-mcp-servers-devops](https://github.com/WagnerAgent/awesome-mcp-servers-devops)**: 1 merged ([#136](https://github.com/WagnerAgent/awesome-mcp-servers-devops/pull/136)), behave.
 - **[osint_stuff_tool_collection](https://github.com/cipher387/osint_stuff_tool_collection)**: 1 merged ([#300](https://github.com/cipher387/osint_stuff_tool_collection/pull/300)), EU Grants Scraper.
 - **[awesome-windows](https://github.com/thechampagne/awesome-windows)**: 1 merged ([#151](https://github.com/thechampagne/awesome-windows/pull/151)), PanelOS.
-- **[awesome-consumer-protection](https://github.com/O957/awesome-consumer-protection)**: 1 merged ([#30](https://github.com/O957/awesome-consumer-protection/pull/30)), truediscount.
+- **[awesome-consumer-protection](https://github.com/O957/awesome-consumer-protection)**: 2 merged ([#29](https://github.com/O957/awesome-consumer-protection/pull/29), [#30](https://github.com/O957/awesome-consumer-protection/pull/30)), shrinkwatch-eu and truediscount.
 - **[awesome-reverse-engineer-anything](https://github.com/AIshihzong/awesome-reverse-engineer-anything)**: 1 merged ([#47](https://github.com/AIshihzong/awesome-reverse-engineer-anything/pull/47)), usb-rea.
 - **[awesome-chrome](https://github.com/xyNNN/awesome-chrome)**: 1 merged ([#206](https://github.com/xyNNN/awesome-chrome/pull/206)), shrinkwatch-eu.
+- **[awesome-osint-mcp-servers](https://github.com/soxoj/awesome-osint-mcp-servers)**: 1 merged ([#162](https://github.com/soxoj/awesome-osint-mcp-servers/pull/162)), TinyRex MCP.
 
 </details>
 

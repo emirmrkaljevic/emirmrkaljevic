@@ -83,7 +83,7 @@
 - **[Kando](https://github.com/kando-menu/kando)** (cross-platform pie menu): [1 merged PR](https://github.com/kando-menu/kando/pulls?q=is%3Apr+author%3Aemirmrkaljevic+is%3Amerged).
 
 <details>
-<summary>Curated lists (26)</summary>
+<summary>Curated lists (27)</summary>
 
 - **[TensorBlock awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)**: 5 merged ([#3825](https://github.com/TensorBlock/awesome-mcp-servers/pull/3825), [#3944](https://github.com/TensorBlock/awesome-mcp-servers/pull/3944), [#3955](https://github.com/TensorBlock/awesome-mcp-servers/pull/3955), [#4905](https://github.com/TensorBlock/awesome-mcp-servers/pull/4905), [#5444](https://github.com/TensorBlock/awesome-mcp-servers/pull/5444)), listing mesh2cad, usb-rea, behave, iotaudit and tinyrex-mcp.
 - **[awesome-mcp-list](https://github.com/MobinX/awesome-mcp-list)**: 4 landed ([#840](https://github.com/MobinX/awesome-mcp-list/pull/840), [#889](https://github.com/MobinX/awesome-mcp-list/pull/889), [#1000](https://github.com/MobinX/awesome-mcp-list/pull/1000), [#1211](https://github.com/MobinX/awesome-mcp-list/pull/1211)), iotaudit, usb-rea and mesh2cad (direct commits for conflicts).
@@ -111,6 +111,7 @@
 - **[awesome-reverse-engineer-anything](https://github.com/AIshihzong/awesome-reverse-engineer-anything)**: 1 merged ([#47](https://github.com/AIshihzong/awesome-reverse-engineer-anything/pull/47)), usb-rea.
 - **[awesome-chrome](https://github.com/xyNNN/awesome-chrome)**: 1 merged ([#206](https://github.com/xyNNN/awesome-chrome/pull/206)), shrinkwatch-eu.
 - **[awesome-osint-mcp-servers](https://github.com/soxoj/awesome-osint-mcp-servers)**: 1 merged ([#162](https://github.com/soxoj/awesome-osint-mcp-servers/pull/162)), TinyRex MCP.
+- **[Awesome-MCP-Servers (AIAnytime)](https://github.com/AIAnytime/Awesome-MCP-Servers)**: 4 merged ([#492](https://github.com/AIAnytime/Awesome-MCP-Servers/pull/492), [#493](https://github.com/AIAnytime/Awesome-MCP-Servers/pull/493), [#499](https://github.com/AIAnytime/Awesome-MCP-Servers/pull/499), [#544](https://github.com/AIAnytime/Awesome-MCP-Servers/pull/544)), iotaudit, behave, usb-rea and TinyRex MCP.
 
 </details>
 

@@ -9,7 +9,8 @@ markers is rewritten to match.
 Needs: Pillow, numpy, the `gh` CLI (GH_TOKEN in CI).
 """
 import importlib.util, json, os, re, subprocess, sys, urllib.request
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timezone, timedelta
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 import numpy as np
@@ -98,12 +99,115 @@ def github_numbers():
     }
 
 
-def apify_actors():
-    try:
-        with urllib.request.urlopen("https://api.apify.com/v2/store?username=tinyrex&limit=1", timeout=20) as r:
-            return json.load(r)["data"]["total"]
-    except Exception:
-        return None
+def total_stars():
+    """Sum stargazer counts on public, non-fork repos Emir owns."""
+    q = """query($u:String!, $cursor:String){
+      user(login:$u){
+        repositories(privacy:PUBLIC, ownerAffiliations:OWNER, isFork:false, first:100, after:$cursor){
+          pageInfo{hasNextPage endCursor}
+          nodes{stargazerCount}
+        }
+      }
+    }"""
+    # gh api graphql --paginate is awkward with cursors in this schema; one page is enough today (12 repos).
+    d = gql(q, u=USER)["user"]["repositories"]
+    total = sum(n["stargazerCount"] for n in d["nodes"])
+    if d["pageInfo"]["hasNextPage"]:
+        cursor = d["pageInfo"]["endCursor"]
+        while cursor:
+            args = ["gh", "api", "graphql", "-f", f"query={q}", "-f", f"u={USER}", "-f", f"cursor={cursor}"]
+            page = json.loads(subprocess.check_output(args))["data"]["user"]["repositories"]
+            total += sum(n["stargazerCount"] for n in page["nodes"])
+            cursor = page["pageInfo"]["endCursor"] if page["pageInfo"]["hasNextPage"] else None
+    return total
+
+
+def _parse_concat_json(raw):
+    raw = raw.strip()
+    if not raw:
+        return []
+    dec = json.JSONDecoder()
+    i, items = 0, []
+    while i < len(raw):
+        while i < len(raw) and raw[i].isspace():
+            i += 1
+        if i >= len(raw):
+            break
+        obj, j = dec.raw_decode(raw, i)
+        items.extend(obj if isinstance(obj, list) else [obj])
+        i = j
+    return items
+
+
+def after_hours_commits():
+    """Share of commits authored by USER after hours, last 12 months
+    (same contributionsCollection window the COMMITS figure uses).
+
+    After hours: weekdays (Mon-Fri) 16:00-08:59 Europe/Sarajevo, plus every
+    commit on Saturday and Sunday. Refresh-the-panel commits in the profile
+    repo are excluded (they run around 08:17 and would otherwise be counted).
+
+    Set PROFILE_NIGHT_CACHE to a stats.json path to reuse a previous fetch
+    (used for previews). The daily refresh should leave that unset.
+    """
+    cache = os.environ.get("PROFILE_NIGHT_CACHE")
+    if cache and Path(cache).exists():
+        s = json.loads(Path(cache).read_text())
+        total = s["excl_refresh"]["total"]
+        night = s["excl_refresh"].get("after_hours_1600_0859")
+        if night is not None:
+            return {
+                "total": total,
+                "night": night,
+                "pct": round(100.0 * night / total, 1) if total else 0.0,
+                "pct_display": round(100.0 * night / total) if total else 0,
+            }
+
+    tz = ZoneInfo("Europe/Sarajevo")
+    meta = gql("""query($u:String!){user(login:$u){contributionsCollection{
+      startedAt endedAt
+      commitContributionsByRepository(maxRepositories:100){
+        contributions{totalCount}
+        repository{nameWithOwner}
+      }}}}""", u=USER)["user"]["contributionsCollection"]
+    start = datetime.fromisoformat(meta["startedAt"].replace("Z", "+00:00"))
+    end = datetime.fromisoformat(meta["endedAt"].replace("Z", "+00:00"))
+    # commits API filters on committer date; pad so timezone edge cases are not dropped
+    since = (start - timedelta(days=2)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    night = total = 0
+    for row in meta["commitContributionsByRepository"]:
+        name = row["repository"]["nameWithOwner"]
+        try:
+            raw = subprocess.check_output(
+                ["gh", "api", "--paginate",
+                 f"repos/{name}/commits?author={USER}&since={since}&per_page=100"],
+                text=True)
+        except Exception as e:
+            print(f"warning: could not list commits in {name}: {e}", file=sys.stderr)
+            continue
+        for c in _parse_concat_json(raw):
+            commit = c.get("commit") or {}
+            date_s = (commit.get("author") or {}).get("date")
+            if not date_s:
+                continue
+            dt = datetime.fromisoformat(date_s.replace("Z", "+00:00"))
+            if dt < start or dt > end:
+                continue
+            msg = (commit.get("message") or "").splitlines()[0] if commit.get("message") else ""
+            if name == f"{USER}/{USER}" and msg.startswith(REFRESH_MSG):
+                continue
+            total += 1
+            local = dt.astimezone(tz)
+            # weekdays 16:00-08:59, plus all weekend
+            if local.weekday() >= 5 or local.hour >= 16 or local.hour < 9:
+                night += 1
+    pct_exact = (100.0 * night / total) if total else 0.0
+    return {
+        "total": total,
+        "night": night,
+        "pct": round(pct_exact, 1),
+        "pct_display": round(pct_exact),
+    }
 
 
 def smooth(xs, k):
@@ -131,8 +235,17 @@ def load_renderer(status_word):
     return r
 
 
-def render_panel(n, now, actors):
-    r = load_renderer(now.get("status", "NOW SHIPPING"))
+def render_panel(n, now, stars, night):
+    r = load_renderer(now.get("status", "AFTER HOURS"))
+    # The Signature title is letter-spaced for words like TINYREX; a number
+    # like "44%" should read naturally, with no gap before %.
+    _paint = r.paint_fitted_line
+    def paint_fitted_line(image, x, y, text, font, fill, max_x, **kwargs):
+        compact = (text or "").replace(" ", "")
+        if compact.endswith("%") and any(ch.isdigit() for ch in compact):
+            kwargs["tracking"] = 0
+        return _paint(image, x, y, text, font, fill, max_x, **kwargs)
+    r.paint_fitted_line = paint_fitted_line
     series = {1: smooth(n["weekly"], 3), 4: smooth(n["daily90"], 7)}
 
     def spark_points(w, h, seed=0):
@@ -147,10 +260,8 @@ def render_panel(n, now, actors):
     r._fmt_temp = lambda v: big.get(int(v), f"{v:.0f}")
     r._metric_sub = lambda s, lk, wk, spaced: ("last 12 months" if lk == "cpu_load"
                                               else f"longest streak {n['longest']}d")
-    pairs = [("REPOS", str(n["repos"]))]
-    if actors:
-        pairs.append(("ACTORS", str(actors)))
-    pairs.append(("SYNC", date.today().strftime("%d %b").upper().lstrip("0")))
+    pairs = [("STARS", str(stars)),
+             ("SYNC", date.today().strftime("%d %b").upper().lstrip("0"))]
     r._stat_pairs = lambda s: pairs
     r._spark_points = spark_points
     # Screenshot look: flat ground, crisp lines. No scrim, no spark glow, and no
@@ -159,15 +270,13 @@ def render_panel(n, now, actors):
     r._spark_glow = lambda size, box, color, seed: (
         Image.new("RGBA", size, (0, 0, 0, 0)), max(2, int(round((box[3] - box[1]) * 0.09))))
     r._signature_pause = lambda *a, **k: None
-    # progress bar = how far through the year we are
-    doy = date.today().timetuple().tm_yday
-    ylen = 366 if date.today().year % 4 == 0 else 365
-    clock = {doy: f"day {doy}", ylen: f"{ylen}"}
-    r._fmt_clock = lambda sec: clock.get(int(sec), str(int(sec)))
+    # progress bar = late-night share (0-100)
+    pct = int(night["pct_display"])
+    r._fmt_clock = lambda sec: f"{int(round(sec))}%"
 
     sensors = {"cpu_label": "COMMITS", "gpu_label": "ACTIVE DAYS", "cpu_temp": 1001, "gpu_temp": 1002}
     media = {"title": now["title"], "artist": now["subtitle"],
-             "position_sec": doy, "duration_sec": ylen, "playing": True}
+             "position_sec": pct, "duration_sec": 100, "playing": True}
     cover = Image.new("RGB", (64, 64), BG)
     img = r.render_theme("signature", sensors, cover=cover, width=W, height=H, media=media)
     img = heatmap(r, img.convert("RGBA"), n["grid"])
@@ -272,19 +381,19 @@ def bezel(screen):
 
 # ---------------------------------------------------------------- tiles
 def tiles(frame, socials, now, song_x):
-    """Three rows. Rows 1-2: stats on the left, contribution grid / now shipping
-    on the right. Row 3: one tile per link. Every row is taller than a line of
-    text even on a phone, and images are top-aligned, so rows meet with no gap."""
+    """Three rows. Rows 1-2: stats on the left, contribution grid / late-night
+    commits on the right. Row 3: one tile per link. Every row is taller than a
+    line of text even on a phone, and images are top-aligned, so rows meet with no gap."""
     fw, fh = frame.size
     sx = int(round(BEZEL + song_x - 0.035 * W))
     sy = int(round(BEZEL + SPLIT_Y * H))
     dy = BEZEL + H
-    ship = now.get("url", "https://apify.com/tinyrex")
+    night_url = now.get("url", f"https://github.com/{USER}")
     rows = [
         [((0, 0, sx, sy), PANELOS_URL, "GitHub numbers on my PanelOS screen: commits and active days over the last 12 months"),
          ((sx, 0, fw, sy), f"https://github.com/{USER}", "My contribution grid for the last weeks")],
-        [((0, sy, sx, dy), PANELOS_URL, "Active days, repos, Apify actors, last sync"),
-         ((sx, sy, fw, dy), ship, f"Now shipping: {now['title']}, {now['subtitle']}")],
+        [((0, sy, sx, dy), PANELOS_URL, "Active days, stars, last sync"),
+         ((sx, sy, fw, dy), night_url, f"After hours: {now['title']}, {now['subtitle']}")],
     ]
     cuts = [0] + [int(round(BEZEL + (i + 1) * W / len(socials))) for i in range(len(socials) - 1)] + [fw]
     rows.append([((cuts[i], dy, cuts[i + 1], fh), it["url"], it["label"]) for i, it in enumerate(socials)])
@@ -315,14 +424,22 @@ def write_readme(block):
 
 def main():
     n = github_numbers()
-    actors = apify_actors()
-    now = json.loads((HERE / "now.json").read_text(encoding="utf-8"))
-    screen, socials, song_x = render_panel(n, now, actors)
+    stars = total_stars()
+    night = after_hours_commits()
+    now = {
+        "status": "AFTER HOURS",
+        "title": f"{night['pct_display']}%",
+        "subtitle": "last 12 months",
+        "url": f"https://github.com/{USER}",
+    }
+    screen, socials, song_x = render_panel(n, now, stars, night)
     frame = bezel(screen)
     if os.environ.get("HERO_FULL"):
         frame.save(os.environ["HERO_FULL"])
-    write_readme(tiles(frame, socials, now, song_x))
-    print(json.dumps({k: v for k, v in n.items() if k not in ("weekly", "daily90", "grid")}), "actors", actors)
+    if not os.environ.get("PREVIEW_ONLY"):
+        write_readme(tiles(frame, socials, now, song_x))
+    print(json.dumps({k: v for k, v in n.items() if k not in ("weekly", "daily90", "grid")}),
+          "stars", stars, "after_hours", night)
 
 
 if __name__ == "__main__":

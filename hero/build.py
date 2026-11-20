@@ -8,7 +8,7 @@ markers is rewritten to match.
 
 Needs: Pillow, numpy, the `gh` CLI (GH_TOKEN in CI).
 """
-import importlib.util, json, os, re, subprocess, sys, urllib.request
+import hashlib, importlib.util, json, os, re, subprocess, sys, urllib.request
 from datetime import date, datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
 from pathlib import Path
@@ -409,10 +409,16 @@ def tiles(frame, socials, now, song_x):
         total = 0.0
         for ci, (box, url, alt) in enumerate(row):
             name = f"r{ri + 1}{'abcdefgh'[ci]}.png"
-            frame.crop(box).save(TILES / name, optimize=True)
+            dest = TILES / name
+            frame.crop(box).save(dest, optimize=True)
+            # Content hash so GitHub/camo fetch a new URL when a tile changes,
+            # and keep the same URL (no README change) when the bytes do not.
+            digest = hashlib.sha256(dest.read_bytes()).hexdigest()[:8]
             pct = int((box[2] - box[0]) / fw * 100000) / 1000      # floor, so a row never wraps
             total += pct
-            parts.append(f'<a href="{url}"><img src="./assets/hero/{name}" width="{pct}%" align="top" alt="{alt}"></a>')
+            parts.append(
+                f'<a href="{url}"><img src="./assets/hero/{name}?v={digest}" width="{pct}%" align="top" alt="{alt}"></a>'
+            )
         html.append("".join(parts))
     return "<p>" + "<br>".join(html) + "</p>"
 

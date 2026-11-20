@@ -260,8 +260,11 @@ def render_panel(n, now, stars, night):
     r._fmt_temp = lambda v: big.get(int(v), f"{v:.0f}")
     r._metric_sub = lambda s, lk, wk, spaced: ("last 12 months" if lk == "cpu_load"
                                               else f"longest streak {n['longest']}d")
-    pairs = [("STARS", str(stars)),
-             ("SYNC", date.today().strftime("%d %b").upper().lstrip("0"))]
+    # Theme prints each pair as "NAME VALUE". The date has no label, so it is
+    # split into day + month and still renders as "20 NOV".
+    shown = date.today().strftime("%d %b").upper().lstrip("0")
+    day, month = shown.rsplit(" ", 1)
+    pairs = [("STARS", str(stars)), (day, month)]
     r._stat_pairs = lambda s: pairs
     r._spark_points = spark_points
     # Screenshot look: flat ground, crisp lines. No scrim, no spark glow, and no
@@ -392,7 +395,7 @@ def tiles(frame, socials, now, song_x):
     rows = [
         [((0, 0, sx, sy), PANELOS_URL, "GitHub numbers on my PanelOS screen: commits and active days over the last 12 months"),
          ((sx, 0, fw, sy), f"https://github.com/{USER}", "My contribution grid for the last weeks")],
-        [((0, sy, sx, dy), PANELOS_URL, "Active days, stars, last sync"),
+        [((0, sy, sx, dy), PANELOS_URL, "Active days, stars, and date"),
          ((sx, sy, fw, dy), night_url, f"After hours: {now['title']}, {now['subtitle']}")],
     ]
     cuts = [0] + [int(round(BEZEL + (i + 1) * W / len(socials))) for i in range(len(socials) - 1)] + [fw]

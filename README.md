@@ -83,7 +83,7 @@
 - **[Kando](https://github.com/kando-menu/kando)** (cross-platform pie menu): [1 merged PR](https://github.com/kando-menu/kando/pulls?q=is%3Apr+author%3Aemirmrkaljevic+is%3Amerged).
 
 <details>
-<summary>Curated lists (28)</summary>
+<summary>Curated lists (30)</summary>
 
 - **[TensorBlock awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)**: 5 merged ([#3825](https://github.com/TensorBlock/awesome-mcp-servers/pull/3825), [#3944](https://github.com/TensorBlock/awesome-mcp-servers/pull/3944), [#3955](https://github.com/TensorBlock/awesome-mcp-servers/pull/3955), [#4905](https://github.com/TensorBlock/awesome-mcp-servers/pull/4905), [#5444](https://github.com/TensorBlock/awesome-mcp-servers/pull/5444)), listing mesh2cad, usb-rea, behave, iotaudit and tinyrex-mcp.
 - **[awesome-mcp-list](https://github.com/MobinX/awesome-mcp-list)**: 4 landed ([#840](https://github.com/MobinX/awesome-mcp-list/pull/840), [#889](https://github.com/MobinX/awesome-mcp-list/pull/889), [#1000](https://github.com/MobinX/awesome-mcp-list/pull/1000), [#1211](https://github.com/MobinX/awesome-mcp-list/pull/1211)), iotaudit, usb-rea and mesh2cad (direct commits for conflicts).
@@ -100,7 +100,7 @@
 - **[OSSDrop](https://github.com/OSSDrop/OSSDrop)**: 4 merged ([#114](https://github.com/OSSDrop/OSSDrop/pull/114), [#121](https://github.com/OSSDrop/OSSDrop/pull/121), [#125](https://github.com/OSSDrop/OSSDrop/pull/125), [#130](https://github.com/OSSDrop/OSSDrop/pull/130)), behave, usb-rea, truediscount and ShrinkWatch EU.
 - **[mcpHQ awesome-mcp-servers](https://github.com/mcpHQ/awesome-mcp-servers)**: 3 merged ([#752](https://github.com/mcpHQ/awesome-mcp-servers/pull/752), [#753](https://github.com/mcpHQ/awesome-mcp-servers/pull/753), [#803](https://github.com/mcpHQ/awesome-mcp-servers/pull/803)), iotaudit, behave and tinyrex-mcp.
 - **[awesome-iot (HQarroum)](https://github.com/HQarroum/awesome-iot)**: 1 merged ([#165](https://github.com/HQarroum/awesome-iot/pull/165)), usb-rea.
-- **[toolsdk-mcp-registry](https://github.com/toolsdk-ai/toolsdk-mcp-registry)**: 1 merged ([#1371](https://github.com/toolsdk-ai/toolsdk-mcp-registry/pull/1371)), iotaudit.
+- **[toolsdk-mcp-registry](https://github.com/toolsdk-ai/toolsdk-mcp-registry)**: 2 merged ([#1371](https://github.com/toolsdk-ai/toolsdk-mcp-registry/pull/1371), [#1383](https://github.com/toolsdk-ai/toolsdk-mcp-registry/pull/1383)), iotaudit and behave.
 - **[personal-finance-awesome](https://github.com/ashishb/personal-finance-awesome)**: 1 merged ([#85](https://github.com/ashishb/personal-finance-awesome/pull/85)), truediscount.
 - **[Awesome-MCP-ZH](https://github.com/yzfly/Awesome-MCP-ZH)**: 1 merged ([#1037](https://github.com/yzfly/Awesome-MCP-ZH/pull/1037)), usb-rea.
 - **[xszn.github.io](https://github.com/xszn/xszn.github.io)**: 2 merged ([#15](https://github.com/xszn/xszn.github.io/pull/15), [#18](https://github.com/xszn/xszn.github.io/pull/18)), shrinkwatch-eu and truediscount.
@@ -114,6 +114,8 @@
 - **[Awesome-MCP-Servers (AIAnytime)](https://github.com/AIAnytime/Awesome-MCP-Servers)**: 4 merged ([#492](https://github.com/AIAnytime/Awesome-MCP-Servers/pull/492), [#493](https://github.com/AIAnytime/Awesome-MCP-Servers/pull/493), [#499](https://github.com/AIAnytime/Awesome-MCP-Servers/pull/499), [#544](https://github.com/AIAnytime/Awesome-MCP-Servers/pull/544)), iotaudit, behave, usb-rea and TinyRex MCP.
 - **[awesome-ai-reverse-engineering](https://github.com/DiscoverBox/awesome-ai-reverse-engineering)**: 1 merged ([#9](https://github.com/DiscoverBox/awesome-ai-reverse-engineering/pull/9)), usb-rea.
 
+- **[awesome-mcp (abordage)](https://github.com/abordage/awesome-mcp)**: 1 merged ([#284](https://github.com/abordage/awesome-mcp/pull/284)), iotaudit.
+- **[Awesome-Black-Friday-Cyber-Monday-deals](https://github.com/twf-nikhila/Awesome-Black-Friday-Cyber-Monday-deals)**: 1 merged ([#820](https://github.com/twf-nikhila/Awesome-Black-Friday-Cyber-Monday-deals/pull/820)), truediscount.
 </details>
 
 ---

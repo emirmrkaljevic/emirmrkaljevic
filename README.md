@@ -83,7 +83,7 @@
 - **[Kando](https://github.com/kando-menu/kando)** (cross-platform pie menu): [1 merged PR](https://github.com/kando-menu/kando/pulls?q=is%3Apr+author%3Aemirmrkaljevic+is%3Amerged).
 
 <details>
-<summary>Curated lists (30)</summary>
+<summary>Curated lists (31)</summary>
 
 - **[TensorBlock awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)**: 5 merged ([#3825](https://github.com/TensorBlock/awesome-mcp-servers/pull/3825), [#3944](https://github.com/TensorBlock/awesome-mcp-servers/pull/3944), [#3955](https://github.com/TensorBlock/awesome-mcp-servers/pull/3955), [#4905](https://github.com/TensorBlock/awesome-mcp-servers/pull/4905), [#5444](https://github.com/TensorBlock/awesome-mcp-servers/pull/5444)), listing mesh2cad, usb-rea, behave, iotaudit and tinyrex-mcp.
 - **[awesome-mcp-list](https://github.com/MobinX/awesome-mcp-list)**: 4 landed ([#840](https://github.com/MobinX/awesome-mcp-list/pull/840), [#889](https://github.com/MobinX/awesome-mcp-list/pull/889), [#1000](https://github.com/MobinX/awesome-mcp-list/pull/1000), [#1211](https://github.com/MobinX/awesome-mcp-list/pull/1211)), iotaudit, usb-rea and mesh2cad (direct commits for conflicts).
@@ -114,8 +114,9 @@
 - **[Awesome-MCP-Servers (AIAnytime)](https://github.com/AIAnytime/Awesome-MCP-Servers)**: 4 merged ([#492](https://github.com/AIAnytime/Awesome-MCP-Servers/pull/492), [#493](https://github.com/AIAnytime/Awesome-MCP-Servers/pull/493), [#499](https://github.com/AIAnytime/Awesome-MCP-Servers/pull/499), [#544](https://github.com/AIAnytime/Awesome-MCP-Servers/pull/544)), iotaudit, behave, usb-rea and TinyRex MCP.
 - **[awesome-ai-reverse-engineering](https://github.com/DiscoverBox/awesome-ai-reverse-engineering)**: 1 merged ([#9](https://github.com/DiscoverBox/awesome-ai-reverse-engineering/pull/9)), usb-rea.
 
-- **[awesome-mcp (abordage)](https://github.com/abordage/awesome-mcp)**: 1 merged ([#284](https://github.com/abordage/awesome-mcp/pull/284)), iotaudit.
+- **[awesome-mcp (abordage)](https://github.com/abordage/awesome-mcp)**: 2 merged ([#284](https://github.com/abordage/awesome-mcp/pull/284), [#288](https://github.com/abordage/awesome-mcp/pull/288)), iotaudit and tinyrex-mcp.
 - **[Awesome-Black-Friday-Cyber-Monday-deals](https://github.com/twf-nikhila/Awesome-Black-Friday-Cyber-Monday-deals)**: 1 merged ([#820](https://github.com/twf-nikhila/Awesome-Black-Friday-Cyber-Monday-deals/pull/820)), truediscount.
+- **[awesome-reverse-engineering (vvs1off)](https://github.com/vvs1off/awesome-reverse-engineering)**: 1 merged ([#1](https://github.com/vvs1off/awesome-reverse-engineering/pull/1)), usb-rea.
 </details>
 
 ---

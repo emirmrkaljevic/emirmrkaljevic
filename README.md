@@ -79,7 +79,7 @@
 - **[webvtt-py](https://github.com/glut23/webvtt-py)** (WebVTT captions for Python): [3 merged PRs](https://github.com/glut23/webvtt-py/pulls?q=is%3Apr+author%3Aemirmrkaljevic+is%3Amerged), caption parsing fixes.
 - **[uutils procps](https://github.com/uutils/procps)** (Rust rewrite of procps): [2 merged PRs](https://github.com/uutils/procps/pulls?q=is%3Apr+author%3Aemirmrkaljevic+is%3Amerged), sysctl flag handling and pmap `-XX`.
 - **[uutils sed](https://github.com/uutils/sed)** (Rust rewrite of GNU sed): [1 merged PR](https://github.com/uutils/sed/pulls?q=is%3Apr+author%3Aemirmrkaljevic+is%3Amerged), comment parsing after a command.
-- **[uutils findutils](https://github.com/uutils/findutils)** (Rust rewrite of GNU findutils): [1 merged PR](https://github.com/uutils/findutils/pulls?q=is%3Apr+author%3Aemirmrkaljevic+is%3Amerged), xargs `-I` handling.
+- **[uutils findutils](https://github.com/uutils/findutils)** (Rust rewrite of GNU findutils): [2 merged PRs](https://github.com/uutils/findutils/pulls?q=is%3Apr+author%3Aemirmrkaljevic+is%3Amerged), xargs `-I` handling.
 - **[Kando](https://github.com/kando-menu/kando)** (cross-platform pie menu): [1 merged PR](https://github.com/kando-menu/kando/pulls?q=is%3Apr+author%3Aemirmrkaljevic+is%3Amerged).
 
 <details>

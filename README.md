@@ -83,7 +83,7 @@
 - **[Kando](https://github.com/kando-menu/kando)** (cross-platform pie menu): [1 merged PR](https://github.com/kando-menu/kando/pulls?q=is%3Apr+author%3Aemirmrkaljevic+is%3Amerged).
 
 <details>
-<summary>Curated lists (32)</summary>
+<summary>Curated lists (35)</summary>
 
 - **[TensorBlock awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)**: 5 merged ([#3825](https://github.com/TensorBlock/awesome-mcp-servers/pull/3825), [#3944](https://github.com/TensorBlock/awesome-mcp-servers/pull/3944), [#3955](https://github.com/TensorBlock/awesome-mcp-servers/pull/3955), [#4905](https://github.com/TensorBlock/awesome-mcp-servers/pull/4905), [#5444](https://github.com/TensorBlock/awesome-mcp-servers/pull/5444)), listing mesh2cad, usb-rea, behave, iotaudit and tinyrex-mcp.
 - **[awesome-mcp-list](https://github.com/MobinX/awesome-mcp-list)**: 4 landed ([#840](https://github.com/MobinX/awesome-mcp-list/pull/840), [#889](https://github.com/MobinX/awesome-mcp-list/pull/889), [#1000](https://github.com/MobinX/awesome-mcp-list/pull/1000), [#1211](https://github.com/MobinX/awesome-mcp-list/pull/1211)), iotaudit, usb-rea and mesh2cad (direct commits for conflicts).
@@ -118,6 +118,9 @@
 - **[Awesome-Black-Friday-Cyber-Monday-deals](https://github.com/twf-nikhila/Awesome-Black-Friday-Cyber-Monday-deals)**: 1 merged ([#820](https://github.com/twf-nikhila/Awesome-Black-Friday-Cyber-Monday-deals/pull/820)), truediscount.
 - **[awesome-reverse-engineering (vvs1off)](https://github.com/vvs1off/awesome-reverse-engineering)**: 1 merged ([#1](https://github.com/vvs1off/awesome-reverse-engineering/pull/1)), usb-rea.
 - **[awesome-learning](https://github.com/mfaisalkhatri/awesome-learning)**: 1 merged ([#495](https://github.com/mfaisalkhatri/awesome-learning/pull/495)), behave.
+- **[awesome-cybersecurity-agentic-ai](https://github.com/raphabot/awesome-cybersecurity-agentic-ai)**: 1 merged ([#121](https://github.com/raphabot/awesome-cybersecurity-agentic-ai/pull/121)), iotaudit.
+- **[awesome-lead-generation](https://github.com/adops-tool/awesome-lead-generation)**: 1 merged ([#44](https://github.com/adops-tool/awesome-lead-generation/pull/44)), Remote Jobs Scraper.
+- **[awesome-mqtt](https://github.com/awesome-mqtt/awesome-mqtt)**: 1 merged ([#195](https://github.com/awesome-mqtt/awesome-mqtt/pull/195)), iotaudit.
 </details>
 
 ---
